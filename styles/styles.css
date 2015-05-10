@@ -1,19 +1,18 @@
-ul {
-    list-style: none;
-    text-decoration: none;
-}
 #left-nav {
-    border: 1px solid #333333;
-    width: 300px;
-    float: left;
+    width: 23%;
+    height: 100%;
+    position:fixed;
+    background-color: #646464;
 }
 
 #right-content {
-    border: 1px solid #333333;
+    position: absolute;
+    right: 0px;
+    min-height: 100%;
+    width: 77%;
 }
 
 #footer {
-    clear: both;
     margin: 0px auto;
-    width: 300px;
+    width: 77%;
 }
