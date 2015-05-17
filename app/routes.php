@@ -15,3 +15,13 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('index', function()
+{
+    return View::make('index');
+});
+
+Route::get('admin', function()
+{
+    return View::make('admin.admin');
+});
