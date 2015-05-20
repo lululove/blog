@@ -34,36 +34,35 @@
             </ul>
         </div>
         <div id="total-article">
-            <div class="article">
-                <h1 class="article-title">我的第一篇文章</h1>
-                <ul>
-                    <li class="article-time">2015年5月10日</li>
-                    <li class="article-comment">15条评论</li>
-                </ul>
-                <p>asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
-                    asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
-                    asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
-                    asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
-                    asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
-                    asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
-                    asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
-                    asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
-                    asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
-                    asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
-                    asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
-                    asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
-                    asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
-                    asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
-                    asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
-                    asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl</p>
-            </div>
 
-            <?php
-                for ($i=0; $i<10; $i++) {
-                    echo "$i";
-                    echo "<br/>";
-                }
-            ?>
+            @for ($i=0; $i<10; $i++)
+                <div class="article">
+                    <h1 class="article-title">我的第{{$i}}篇文章</h1>
+                    <ul>
+                        <li class="article-time">2015年5月10日</li>
+                        <li class="article-comment">15条评论</li>
+                    </ul>
+                    <p>asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
+                        asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
+                        asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
+                        asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
+                        asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
+                        asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
+                        asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
+                        asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
+                        asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
+                        asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
+                        asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
+                        asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
+                        asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
+                        asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
+                        asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
+                        asjdhkjahdskjhakdhakdhkahdkhkasdkjalkshdjahfsdhasldfkjhlashdfl
+                    </p>
+                </div>
+
+            @endfor
+
         </div>
         <div id="footer">
             <p>&copy; 2013-2015 <b>Lulu爱</b>. <a href="http://www.miitbeian.gov.cn/" title="赣ICP备15000527号" target="_blank">赣ICP备15000527号</a></p>
