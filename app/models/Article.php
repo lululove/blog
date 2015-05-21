@@ -8,12 +8,8 @@
 
 class Article extends Eloquent {
 
-    protected $table = "articles";
+    protected $table = "article";
 
     protected $primaryKey = "article_id";
-
-    public $article_name;
-    public $article_time;
-    public $article_content;
 
 }

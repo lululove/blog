@@ -10,11 +10,13 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
+/*
 Route::get('/', function()
 {
 	return View::make('index');
 });
+*/
+Route::get('/', 'IndexController@getIndex');
 
 Route::get('index', function()
 {
