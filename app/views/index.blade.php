@@ -37,14 +37,15 @@
 
             @foreach($articles as $article)
                 <div class="article">
-                    <h1 class="article-title">我的第{{$article->article_name}}篇文章</h1>
+                    <h1 class="article-title">{{$article->article_title}}</h1>
                     <ul>
-                        <li class="article-time">2015年5月10日</li>
+                        <li class="article-time">{{$article->updated_at}}</li>
                         <li class="article-comment">15条评论</li>
                     </ul>
                     <p>{{$article->article_content}}</p>
                 </div>
             @endforeach
+            
         </div>
         <div id="footer">
             <p>&copy; 2013-2015 <b>Lulu爱</b>. <a href="http://www.miitbeian.gov.cn/" title="赣ICP备15000527号" target="_blank">赣ICP备15000527号</a></p>

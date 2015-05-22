@@ -12,4 +12,6 @@ class Article extends Eloquent {
 
     protected $primaryKey = "article_id";
 
+    protected $fillable = ['article_name', 'article_time', 'article_content'];
+
 }

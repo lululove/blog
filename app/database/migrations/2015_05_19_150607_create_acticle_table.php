@@ -13,10 +13,12 @@ class CreateActicleTable extends Migration {
 	public function up()
 	{
         Schema::create('article', function (Blueprint $table) {
-            $table->increments('article_id');
-            $table->string('article_name');
-            $table->dateTime('article_time');
-            $table->text("article_content");
+            $table->increments('article_id')->nullable();
+            $table->string('article_title');
+            $table->text('article_content');
+            $table->integer('article_click')->unsigend()->default(100);
+            $table->integer('user_id')->unsigned();
+            $table->integer('category_id')->unsigned();
             $table->timestamps();
         });
 	}
