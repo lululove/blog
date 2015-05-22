@@ -19,6 +19,7 @@ class CreateActicleTable extends Migration {
             $table->integer('article_click')->unsigend()->default(100);
             $table->integer('user_id')->unsigned();
             $table->integer('category_id')->unsigned();
+            $table->boolean('remember_token')->default(0);
             $table->timestamps();
         });
 	}

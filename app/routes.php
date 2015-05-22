@@ -23,7 +23,6 @@ Route::get('index', function()
     return View::make('index');
 });
 
-Route::get('admin', function()
-{
-    return View::make('admin.admin');
-});
+Route::get('admin', 'UserController@getAdmin');
+
+Route::post('admin', 'UserController@postAdmin');
