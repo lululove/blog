@@ -12,7 +12,7 @@ class UserTableSeeder extends Seeder {
         User::create(array(
             'user_name'    => 'lulu',
             'user_email'   => 'admin@lulu-love.cc',
-            'user_passwd'  => Hash::make('123456'),
+            'password'  => Hash::make('123456'),
             'is_admin'     => true
         ));
     }

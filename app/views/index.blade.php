@@ -1,14 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh">
 <head>
     <title>Lulu</title>
 
     {{HTML::style('styles/reset.css')}}
     {{HTML::style('styles/styles.css')}}
     {{HTML::style('bootstrap-3.3.4/css/bootstrap.css')}}
-    {{HTML::script('jquery-1.11.3/jquery-1.11.3.js')}}
-    {{HTML::script('bootstrap-3.3.4/js/bootstrap.js')}}
-    {{HTML::script('js/main.js')}}
+
 
 </head>
 <body>
@@ -40,9 +38,13 @@
                     <h1 class="article-title">{{$article->article_title}}</h1>
                     <ul>
                         <li class="article-time">{{$article->updated_at}}</li>
-                        <li class="article-comment">15条评论</li>
+                        <li class="article-comment"><a href="#">15条评论</a></li>
                     </ul>
-                    <p>{{$article->article_content}}</p>
+
+                    <div class="jumbotron" id="my-jumbotron">
+                        <p>{{$article->article_content}}</p>
+                    </div>
+
                 </div>
             @endforeach
             
@@ -52,5 +54,10 @@
         </div>
     </div>
 </div>
+
+{{HTML::script('jquery-1.11.3/jquery-1.11.3.js')}}
+{{HTML::script('bootstrap-3.3.4/js/bootstrap.js')}}
+{{HTML::script('js/main.js')}}
+
 </body>
 </html>

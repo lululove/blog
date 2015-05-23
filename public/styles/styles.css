@@ -51,7 +51,7 @@
 
 .article {
     clear: both;
-    border-bottom: 2px solid #000000;
+    border-bottom: 1px solid #DDD;
 }
 
 .article h1 {
@@ -67,18 +67,16 @@
     clear: both;
     margin-right: 5%;
     margin-left: 22px;
-    margin-bottom: 15px;
-    font-weight: 300;
-    font-size: 15px;
 }
 
 .article-title {
-    font-weight: 300;
-    font-size: 22px;
-    margin: 10px 22px;
+    margin: 20px 22px;
 }
 
 #signin-body {
     padding-top: 200px;
+}
 
+#my-jumbotron {
+    padding: 0px 0px 10px 0px;
 }
