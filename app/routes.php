@@ -18,9 +18,9 @@ Route::get('/', function()
 */
 Route::get('/', 'IndexController@getIndex');
 
-Route::get('index', function()
+Route::get('test', function()
 {
-    return View::make('index');
+    return View::make('test');
 });
 
 Route::get('login', 'AuthController@getLogin');

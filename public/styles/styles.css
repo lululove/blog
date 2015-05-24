@@ -1,8 +1,7 @@
 #left-nav {
-    width: 23%;
     height: 100%;
-    position:fixed;
     background-color: #646464;
+    position: fixed;
 }
 
 #left-margin {
@@ -30,47 +29,35 @@
     font-weight: 300;
     font-size: 18px;
     color: #ffffff;
+    text-decoration: none;
+}
+#left-margin ul li a:hover {
+    color: #c12e2a;
+}
+.article h2 {
+    margin-right: 2%;
+    margin-left: 2%;
+
 }
 
-#right-content {
-    position: absolute;
-    right: 0px;
-    min-height: 100%;
-    width: 77%;
+.article h2 a {
+    color: #222222;
 }
 
-#right-header ul li{
-    float: left;
+.article a {
+    text-decoration: none;
 }
 
-#footer {
-    width: 50%;
-    margin: 0px auto;
+.article a:hover {
+    color: #c12e2a;
 }
-
-
-.article {
-    clear: both;
-    border-bottom: 1px solid #DDD;
-}
-
-.article h1 {
-    float: left;
-}
-
 .article ul {
-    float: right;
-    margin-right: 5%;
-    margin-top: 4px;
+    margin-right: 2%;
+    margin-top: 15px;
 }
 .article p {
-    clear: both;
-    margin-right: 5%;
-    margin-left: 22px;
-}
-
-.article-title {
-    margin: 20px 22px;
+    margin-right: 2%;
+    margin-left: 2%;
 }
 
 #signin-body {
@@ -79,4 +66,12 @@
 
 #my-jumbotron {
     padding: 0px 0px 10px 0px;
+    margin-bottom: 25px;
+}
+#my-jumbotron p{
+    font-size: 17px;
+}
+
+#right-header {
+    padding-bottom: 25px;
 }
