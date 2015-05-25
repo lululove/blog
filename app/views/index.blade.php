@@ -6,6 +6,7 @@
     {{HTML::style('styles/reset.css')}}
     {{HTML::style('bootstrap-3.3.4/css/bootstrap.css')}}
     {{HTML::style('styles/styles.css')}}
+
 </head>
 <body>
 <div class="container-fluid">
@@ -31,17 +32,17 @@
                     <div class="article">
                         <div class="jumbotron" id="my-jumbotron">
                             <div class="clearfix">
-                            <h2 class="pull-left"><strong>{{ HTML::link('login', $article->article_title) }}</strong></h2>
-                            <ul class="pull-right">
-                                <li class="article-time">
-                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"> </span>
-                                    {{$article->created_at}}
-                                </li>
-                                <li class="article-comment">
-                                    <span class="glyphicon glyphicon-comment" aria-hidden="true"> </span>
-                                    <span>{{HTML::link('login', '15条评论')}}</span>
-                                </li>
-                            </ul>
+                                <h2 class="pull-left"><strong>{{ HTML::link('login', $article->article_title) }}</strong></h2>
+                                <ul class="pull-right">
+                                    <li class="article-time">
+                                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"> </span>
+                                        {{$article->created_at}}
+                                    </li>
+                                    <li class="article-comment">
+                                        <span class="glyphicon glyphicon-comment" aria-hidden="true"> </span>
+                                        <span>{{HTML::link('login', '15条评论')}}</span>
+                                    </li>
+                                </ul>
                             </div>
                             <p>{{$article->article_content}}<span>{{HTML::link('login','   阅读全文...')}}</span></p>
 

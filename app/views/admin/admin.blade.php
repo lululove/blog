@@ -4,18 +4,87 @@
     <title>Lulu</title>
 
     {{HTML::style('styles/reset.css')}}
-    {{HTML::style('styles/styles.css')}}
     {{HTML::style('bootstrap-3.3.4/css/bootstrap.css')}}
-    {{HTML::script('jquery-1.11.3/jquery-1.11.3.js')}}
-    {{HTML::script('bootstrap-3.3.4/js/bootstrap.js')}}
+    {{HTML::style('styles/admin.css')}}
 
 </head>
 <body>
-<div class="container">
-
-    <div id="footer">
-        <p>&copy; 2013-2015 <b>Lulu爱</b>. <a href="http://www.miitbeian.gov.cn/" title="赣ICP备15000527号" target="_blank">赣ICP备15000527号</a></p>
+    <div class="navbar navbar-static-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/Admin/index.html" id="logo">Blog后台管理
+                </a>
+            </div>
+        </div>
     </div>
-</div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
+
+                    <li class="active">
+                        <a href="#">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                            状态
+                            <span class="label label-warning pull-right">5</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#ArticleGategory" class="nav-header collapsed" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-pushpin"></i>
+                            文章
+                            <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                        <ul id="ArticleGategory" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                            <li><a href="#">全部分类</a></li>
+                            <li><a href="#">Linux</a></li>
+                            <li><a href="#">Android</a></li>
+                            <li><a href="#">MIUI</a></li>
+                            <li><a href="#">生活</a></li>
+                            <li><a href="#">WEB</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="./plans.html">
+                            <i class="glyphicon glyphicon-file"></i>
+                            页面
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-cog"></i>
+                            系统管理
+                            <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                        <ul id="systemSetting" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                            <li><a href="#">用户管理</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-th-large"></i>
+                            返回首页
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-fire"></i>
+                            关于系统
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-10">
+                主窗口
+            </div>
+        </div>
+    </div>
+
+    {{HTML::script('jquery-1.11.3/jquery-1.11.3.js')}}
+    {{HTML::script('bootstrap-3.3.4/js/bootstrap.js')}}
+    {{HTML::script('js/main.js')}}
+
 </body>
 </html>

@@ -32,3 +32,5 @@ Route::get('admin', function() {
     return View::make('admin.admin');
 
 });
+
+Route::get('edit', 'ArticleController@getEdit');
