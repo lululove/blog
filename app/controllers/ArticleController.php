@@ -14,7 +14,10 @@ class ArticleController extends BaseController {
         // $articles = DB::table('article')->get();
 
         $articles = Article::all();
-        return View::make('index')->with(compact('articles'));
+        $categories = Article::get(array('category_id'));
+
+        //return View::make('admin.edit')->with(array(compact('articles'), compact('categories')));
+        return View::make('admin.edit')->with(array('articles' => $articles, 'categories' => $categories));
     }
 
 }

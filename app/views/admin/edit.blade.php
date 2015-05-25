@@ -38,11 +38,9 @@
                     </a>
                     <ul id="ArticleGategory" class="nav nav-list collapse secondmenu" style="height: 0px;">
                         <li><a href="#">全部分类</a></li>
-                        <li><a href="#">Linux</a></li>
-                        <li><a href="#">Android</a></li>
-                        <li><a href="#">MIUI</a></li>
-                        <li><a href="#">生活</a></li>
-                        <li><a href="#">WEB</a></li>
+                        @foreach($categories as $category)
+                            <li><a href="#">{{$category->category_id}}</a></li>
+                        @endforeach
                     </ul>
                 </li>
 
@@ -90,97 +88,15 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td><input type="checkbox" name="article_id" value=""> Tanmay</td>
-                    <td>Bangalore</td>
-                    <td>Tanmay</td>
-                    <td>Bangalore</td>
-                    <td>Bangalore</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="article_id" value=""> Tanmay</td>
-                    <td>Mumbai</td>
-                    <td>Tanmay</td>
-                    <td>Bangalore</td>
-                    <td>Bangalore</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="article_id" value=""> Tanmay</td>
-                    <td>Mumbai</td>
-                    <td>Tanmay</td>
-                    <td>Bangalore</td>
-                    <td>Bangalore</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="article_id" value=""> Tanmay</td>
-                    <td>Mumbai</td>
-                    <td>Tanmay</td>
-                    <td>Bangalore</td>
-                    <td>Bangalore</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="article_id" value=""> Tanmay</td>
-                    <td>Mumbai</td>
-                    <td>Tanmay</td>
-                    <td>Bangalore</td>
-                    <td>Bangalore</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="article_id" value=""> Tanmay</td>
-                    <td>Mumbai</td>
-                    <td>Tanmay</td>
-                    <td>Bangalore</td>
-                    <td>Bangalore</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="article_id" value=""> Tanmay</td>
-                    <td>Mumbai</td>
-                    <td>Tanmay</td>
-                    <td>Bangalore</td>
-                    <td>Bangalore</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="article_id" value=""> Tanmay</td>
-                    <td>Mumbai</td>
-                    <td>Tanmay</td>
-                    <td>Bangalore</td>
-                    <td>Bangalore</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="article_id" value=""> Tanmay</td>
-                    <td>Mumbai</td>
-                    <td>Tanmay</td>
-                    <td>Bangalore</td>
-                    <td>Bangalore</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="article_id" value=""> Tanmay</td>
-                    <td>Mumbai</td>
-                    <td>Tanmay</td>
-                    <td>Bangalore</td>
-                    <td>Bangalore</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="article_id" value=""> Tanmay</td>
-                    <td>Mumbai</td>
-                    <td>Tanmay</td>
-                    <td>Bangalore</td>
-                    <td>Bangalore</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="article_id" value=""> Tanmay</td>
-                    <td>Mumbai</td>
-                    <td>Tanmay</td>
-                    <td>Bangalore</td>
-                    <td>Bangalore</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="article_id" value=""> Tanmay</td>
-                    <td>Mumbai</td>
-                    <td>Tanmay</td>
-                    <td>Bangalore</td>
-                    <td>Bangalore</td>
-                </tr>
+                @foreach( $articles as $article)
+                    <tr>
+                        <td><input type="checkbox" name="article_id" value="{{$article->article_title}}"> {{$article->article_title}}</td>
+                        <td>{{$article->article_author}}</td>
+                        <td>{{$article->category_id}}</td>
+                        <td>{{$article->article_title}}</td>
+                        <td>{{$article->created_at}}</td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
