@@ -18,7 +18,7 @@ class CreateActicleTable extends Migration {
             $table->text('article_content');
             $table->integer('article_click')->unsigend()->default(100);
             $table->string('article_author')->nullable();
-            $table->string('category_id')->nullable()->default('未分类');
+            $table->integer('category_id')->nullable()->default(0);
             $table->boolean('remember_token')->default(0);
             $table->timestamps();
         });

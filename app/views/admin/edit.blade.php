@@ -39,7 +39,7 @@
                     <ul id="ArticleGategory" class="nav nav-list collapse secondmenu" style="height: 0px;">
                         <li><a href="#">全部分类</a></li>
                         @foreach($categories as $category)
-                            <li><a href="#">{{$category->category_id}}</a></li>
+                            <li><a href="#">{{$category->category_name}}</a></li>
                         @endforeach
                     </ul>
                 </li>
@@ -92,7 +92,7 @@
                     <tr>
                         <td><input type="checkbox" name="article_id" value="{{$article->article_title}}"> {{$article->article_title}}</td>
                         <td>{{$article->article_author}}</td>
-                        <td>{{$article->category_id}}</td>
+                        <td>{{$article->category_name}}</td>
                         <td>{{$article->article_title}}</td>
                         <td>{{$article->created_at}}</td>
                     </tr>
