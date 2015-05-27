@@ -14,4 +14,14 @@ class Article extends Eloquent {
 
     protected $fillable = ['article_name', 'article_time', 'article_content', 'article_author', 'category_id'];
 
+
+    public function category() {
+
+        return $this->belongsTo('Category', 'category_id');
+    }
+
+    public function comment() {
+
+        return $this->hasMany('Comment', 'article_id');
+    }
 }

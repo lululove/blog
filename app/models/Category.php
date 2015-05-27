@@ -10,4 +10,11 @@ class Category extends Eloquent {
 
     protected $table = 'category';
     protected $primaryKey = 'category_id';
+
+
+    public function article() {
+
+        return $this->hasMany('Article', 'article_id');
+    }
+
 }

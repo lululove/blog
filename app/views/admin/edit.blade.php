@@ -75,9 +75,8 @@
             </ul>
         </div>
         <div class="col-md-10">
-            <h1>新建文章</h1>
+            <h1><a href="#">写文章</a></h1>
             <table class="table table-striped">
-                <caption>基本的表格布局</caption>
                 <thead>
                 <tr>
                     <th>标题</th>
@@ -88,12 +87,13 @@
                 </tr>
                 </thead>
                 <tbody>
+
                 @foreach( $articles as $article)
                     <tr>
                         <td><input type="checkbox" name="article_id" value="{{$article->article_title}}"> {{$article->article_title}}</td>
                         <td>{{$article->article_author}}</td>
-                        <td>{{$article->category_name}}</td>
-                        <td>{{$article->article_title}}</td>
+                        <td>{{Article::find($article->article_id)->category->category_name}}</td>
+                        <td>{{Article::find($article->article_id)->comment->count()}}</td>
                         <td>{{$article->created_at}}</td>
                     </tr>
                 @endforeach

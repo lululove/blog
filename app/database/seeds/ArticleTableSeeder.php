@@ -14,15 +14,26 @@ class ArticleTableSeeder extends Seeder {
      */
     public function run()
     {
-        for ($i=0; $i<10; $i++) {
+        for ($i=0; $i<5; $i++) {
             Article::create(array(
                 'article_title' => '编译OpenWrt全纪录'.$i,
                 'article_content' => '在编译OpenWrt固件时，稍微加点东西就报空间不足，为了这单独买个路由感觉有点不值得，于是就想着将其改造下，换个闪存和内存，顺便加个USB接口出来。 我这个WR841N路由硬件是V7，直接taobao搜内存型号现代HY5DU121622DTP-D43 64M，闪存是华邦W25Q128FVSG 16M，DC-DC降压给USB供电的我是买的现成的模块，本想自己接个7905，',
                 'article_click' => '200',
                 'article_author' => 'admin',
-                'category_id' => '1'
+                'category_id' => $i+1
             ));
         }
+
+        for ($i=0; $i<5; $i++) {
+            Article::create(array(
+                'article_title' => '编译OpenWrt全纪录'.($i+6),
+                'article_content' => '在编译OpenWrt固件时，稍微加点东西就报空间不足，为了这单独买个路由感觉有点不值得，于是就想着将其改造下，换个闪存和内存，顺便加个USB接口出来。 我这个WR841N路由硬件是V7，直接taobao搜内存型号现代HY5DU121622DTP-D43 64M，闪存是华邦W25Q128FVSG 16M，DC-DC降压给USB供电的我是买的现成的模块，本想自己接个7905，',
+                'article_click' => '200',
+                'article_author' => 'admin',
+                'category_id' => $i+1
+            ));
+        }
+
     }
 
 }

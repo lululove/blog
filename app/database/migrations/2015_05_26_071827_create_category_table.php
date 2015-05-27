@@ -15,7 +15,6 @@ class CreateCategoryTable extends Migration {
 		Schema::create('category', function(Blueprint $table)
 		{
             $table->increments('category_id')->unsigned();
-            $table->integer('article_id')->nullable()->unsigned()->default();
             $table->string('category_name')->nullable()->default('未分类');
             $table->timestamps();
 		});

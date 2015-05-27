@@ -10,12 +10,11 @@ class CategoryTableSeeder extends Seeder {
 
     public function run() {
 
-        $categories = array('Linux', 'Android', 'MIUI', 'WEB', '生活');
+        $categories = array('未分类','Linux', 'Android', 'MIUI', 'WEB', '生活');
 
-        for ($i=0; $i<5; $i++) {
+        for ($i=0; $i<6; $i++) {
 
             Category::create(array(
-                'article_id'  => ($i + 1),
                 'category_name' => $categories[$i]
             ));
         }
