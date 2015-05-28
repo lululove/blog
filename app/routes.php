@@ -34,3 +34,15 @@ Route::get('admin', function() {
 });
 
 Route::get('edit', 'ArticleController@getEdit');
+
+
+Route::get('edit/new', 'ArticleController@getEditArticle');
+
+Route::post('edit/new', 'ArticleController@postEditArticle');
+
+
+Route::get('edit/{category_id}/{article_id}', 'ArticleController@getEditArticle')
+    ->where(array('category_id' => '[0-9]+', 'article_id' => '[0-9]+'));
+
+
+Route::post('edit/{category_id}/{article_id}', 'ArticleController@postEditArticle');
