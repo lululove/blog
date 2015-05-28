@@ -22,15 +22,24 @@ class ArticleController extends BaseController {
 
     public function getEditArticle($category_id, $article_id) {
 
+        $categories = Category::all();
+        $article = Article::find($article_id);
+
+
+        return View::make('admin.editArticle')->with(array('article' => $article, 'categories' => $categories, 'category_id' => $category_id, 'article_id' => $article_id));
+    }
+
+    public function getEditArticleNew() {
+
         $articles = Article::all();
         $categories = Category::all();
 
-        return View::make('admin.editArticle')->with(array('articles' => $articles, 'categories' => $categories, 'category_id' => $category_id, 'article_id' => $article_id));
+        return View::make('admin.editArticle')->with(array('articles' => $articles, 'categories' => $categories));
     }
 
-    public function postEditArticle() {
+    public function postEditArticle($category_id, $article_id) {
 
-        $article = new Article();
+        $article = Article::find($article_id);
 
         $article_title = Input::get('article_title');
         $article_content = Input::get('article_content');
@@ -38,13 +47,12 @@ class ArticleController extends BaseController {
         $article->article_title = $article_title;
         $article->article_content = $article_content;
 
-        $article->article_click = 200;
+        $article->article_click = 100;
         $article->article_author = 'admin';
-        $article->category_id = 2;
+        $article->category_id = $category_id;
 
         $article->save();
 
-        URL::route('admin');
     }
 
 }

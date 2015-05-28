@@ -36,9 +36,9 @@ Route::get('admin', function() {
 Route::get('edit', 'ArticleController@getEdit');
 
 
-Route::get('edit/new', 'ArticleController@getEditArticle');
+Route::get('edit/new', 'ArticleController@getEditArticleNew');
 
-Route::post('edit/new', 'ArticleController@postEditArticle');
+Route::post('edit/new', 'ArticleController@postEditArticleNew');
 
 
 Route::get('edit/{category_id}/{article_id}', 'ArticleController@getEditArticle')

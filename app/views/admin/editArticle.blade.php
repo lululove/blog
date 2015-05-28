@@ -81,9 +81,9 @@
                     <div class="col-md-9">
                         <div class="form-group">
                             <label for="ArticleTitle">文章标题</label>
-                            <input type="text" name="article_title" class="form-control" id="ArticleTitle" placeholder="填写文章标题">
+                            <input type="text" name="article_title" class="form-control" id="ArticleTitle" value="{{$article->article_title}}" placeholder="填写文章标题">
                         </div>
-                        <textarea name="article_content"></textarea>
+                        <textarea name="article_content">{{$article->article_content}}</textarea>
                         <script type="text/javascript">CKEDITOR.replace('article_content')</script>
                     </div>
                     <div class="col-md-3">

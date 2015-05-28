@@ -75,7 +75,7 @@
             </ul>
         </div>
         <div class="col-md-10">
-            <h1><a href="{{URL::route('admin')}}">写文章</a></h1>
+            <h1>{{HTML::link('edit/new', '写文章')}}</h1>
             <table class="table table-striped">
                 <thead>
                 <tr>
