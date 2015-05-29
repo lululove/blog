@@ -32,7 +32,7 @@
                     <div class="article">
                         <div class="jumbotron" id="my-jumbotron">
                             <div class="clearfix">
-                                <h2 class="pull-left"><strong>{{ HTML::link('login', $article->article_title) }}</strong></h2>
+                                <h2 class="pull-left"><strong>{{ HTML::link('article/'.$article->article_id, $article->article_title) }}</strong></h2>
                                 <ul class="pull-right">
                                     <li class="article-time">
                                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"> </span>

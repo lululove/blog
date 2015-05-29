@@ -29,12 +29,11 @@ class ArticleController extends BaseController {
         return View::make('admin.editArticle')->with(array('article' => $article, 'categories' => $categories, 'category_id' => $category_id, 'article_id' => $article_id));
     }
 
-    public function getEditArticleNew() {
+    public function getArticle($article_id) {
 
-        $articles = Article::all();
-        $categories = Category::all();
+        $article = Article::find($article_id);
 
-        return View::make('admin.editArticle')->with(array('articles' => $articles, 'categories' => $categories));
+        return View::make('admin.showArticle')->with(array('article' => $article));
     }
 
     public function postEditArticle($category_id, $article_id) {
@@ -47,12 +46,32 @@ class ArticleController extends BaseController {
         $article->article_title = $article_title;
         $article->article_content = $article_content;
 
-        $article->article_click = 100;
         $article->article_author = 'admin';
         $article->category_id = $category_id;
 
         $article->save();
 
+        return View::make('test');
     }
 
+    public function getEditArticleNew() {
+
+        $categories = Category::all();
+
+        return View::make('admin.editArticle')->with(array('article' => null, 'categories' => $categories));
+    }
+
+    public function postEditArticleNew() {
+
+        $article = new Article();
+        $article->category_id = 2;//Input::get('category_id');
+        $article->article_title = Input::get('article_title');
+        $article->article_content = Input::get('article_content');
+        $article->article_author = 'admin';
+
+        $article->save();
+
+
+        return View::make('test');
+    }
 }
