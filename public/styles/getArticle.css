@@ -4,3 +4,19 @@
     margin-bottom: 12px;
     font-style: italic;
 }
+#article_comment {
+
+    border-bottom: 1px dashed #E5E5E5;
+    padding-bottom: 5px;
+    padding-left: 20px;
+}
+
+#article_comment a {
+    font-size: 1.1em;
+}
+
+#article_comment span {
+    font-style: italic;
+    margin-left: 5px;
+    font-size: 0.8em;
+}

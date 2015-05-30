@@ -41,23 +41,40 @@
                     </div>
                     <h3 class="page-header">评论列表({{$article->comment->count()}})</h3>
 
+                    @foreach($article->comment->all() as $comment)
+                        <div id="article_comment">
+                            <div>
+                                <a href="http://{{$comment->author_web}}" target="_blank">{{$comment->author_name}}</a>
+                                <span>发表于{{$comment->created_at}}</span>
+                            </div>
+                            <p>{{$comment->comment_content}}</p>
+                        </div>
+                    @endforeach
+
                     <h4>发表评论</h4>
-                    <div class="col-md-4">
-                        <form class="form-horizontal">
+                    <div class="col-md-5">
+                        <form method="post" class="form-horizontal">
                             <div class="form-group">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                                <label for="inputEmail3" class="control-label">Email</label>
+                                <div class="col-md-10">
+                                    <input name="comment_author" type="text" class="form-control" id="comment_author" placeholder="评论作者">
+                                </div>
+                                <label for="comment_author" class="control-label">作者</label>
                             </div>
                             <div class="form-group">
+                                <div class="col-md-10">
+                                <input name="comment_email" type="email" class="form-control" id="comment_email" placeholder="邮箱">
+                                    </div>
+                                <label for="comment_email" class="control-label">邮箱</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <input name="comment_website" type="text" class="form-control" id="comment_website" placeholder="站点">
+                                </div>
+                                <label for="comment_website" class="control-label">站点</label>
+                            </div>
+                            <textarea name="comment_content" class="form-control" rows="5"></textarea>
 
-
-                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                                <label for="inputPassword3" class="control-label">Password</label>
-                            </div>
-                            <textarea class="form-control" rows="5"></textarea>
-                            <div class="form-group">
-                                    <button type="submit" class="btn btn-default">提交</button>
-                            </div>
+                            <button style="margin-top: 10px" type="submit" class="btn btn-default">提交</button>
                         </form>
                     </div>
                 </div>

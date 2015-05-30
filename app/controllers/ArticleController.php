@@ -9,14 +9,10 @@ class ArticleController extends BaseController {
 
     public function getEdit()
     {
-        //$articles   = Article::find('article_id');
-        // $articles = DB::select('SELECT * FROM article');
-        // $articles = DB::table('article')->get();
 
         $articles = Article::all();
         $categories = Category::all();
 
-        //return View::make('admin.edit')->with(array(compact('articles'), compact('categories')));
         return View::make('admin.edit')->with(array('articles' => $articles, 'categories' => $categories));
     }
 
@@ -34,6 +30,21 @@ class ArticleController extends BaseController {
         $article = Article::find($article_id);
 
         return View::make('admin.showArticle')->with(array('article' => $article));
+    }
+
+    public function postComment($article_id) {
+
+        $comment = new Comment();
+
+        $comment->author_name = Input::get('comment_author');
+        $comment->author_email = Input::get('comment_email');
+        $comment->author_web = Input::get('comment_website');
+        $comment->comment_content = Input::get('comment_content');
+        $comment->article_id = $article_id;
+
+        $comment->save();
+
+        return Redirect::to('article/'.$article_id);
     }
 
     public function postEditArticle($category_id, $article_id) {
