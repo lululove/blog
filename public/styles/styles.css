@@ -25,6 +25,12 @@
     display: block;
 }
 
+#left-margin h1 a {
+
+    text-decoration: none;
+    color: #ffffff;
+}
+
 #left-margin ul li a{
     font-weight: 300;
     font-size: 18px;

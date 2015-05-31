@@ -13,10 +13,10 @@
     <div class="row">
         <div class="col-xs-3" id="left-nav">
             <div id="left-margin">
-                <h1>Lulu爱</h1>
+                <h1><a href="{{URL::route('home')}}" title="LOGO">Lulu爱</a></h1>
                 <p>Sharing technology and life</p>
                 <ul>
-                    <li><a href="#" title="Blog">Blog</a></li>
+                    <li><a href="{{URL::route('home')}}" title="Blog">Blog</a></li>
                     <li><a href="#" title="Archives">Archives</a></li>
                     <li><a href="#" title="Gategory">Gategory</a></li>
                     <li><a href="#" title="Github">Github</a></li>
@@ -44,10 +44,9 @@
                                     </li>
                                 </ul>
                             </div>
-                            <p>{{$article->article_content}}<span>{{HTML::link('login','   阅读全文...')}}</span></p>
-
+                            <p>{{$article->article_content}}</p>
+                            <P>{{ HTML::link('article/'.$article->article_id, '   阅读全文...') }}</P>
                         </div>
-
                     </div>
                 @endforeach
             </div>

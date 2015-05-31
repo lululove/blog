@@ -16,7 +16,7 @@ Route::get('/', function()
 	return View::make('index');
 });
 */
-Route::get('/', 'IndexController@getIndex');
+Route::get('/', array('as' => 'home', 'uses' => 'IndexController@getIndex'));
 
 Route::get('test', function()
 {
