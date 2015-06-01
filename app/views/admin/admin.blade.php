@@ -38,11 +38,9 @@
                         </a>
                         <ul id="ArticleGategory" class="nav nav-list collapse secondmenu" style="height: 0px;">
                             <li><a href="#">全部分类</a></li>
-                            <li><a href="#">Linux</a></li>
-                            <li><a href="#">Android</a></li>
-                            <li><a href="#">MIUI</a></li>
-                            <li><a href="#">生活</a></li>
-                            <li><a href="#">WEB</a></li>
+                            @foreach($categories as $category)
+                                <li><a href="#">{{$category->category_name}}</a></li>
+                            @endforeach
                         </ul>
                     </li>
 

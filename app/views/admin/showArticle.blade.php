@@ -14,10 +14,10 @@
     <div class="row">
         <div class="col-xs-3" id="left-nav">
             <div id="left-margin">
-                <h1>Lulu爱</h1>
+                <h1><a href="{{URL::route('home')}}">Lulu爱</a></h1>
                 <p>Sharing technology and life</p>
                 <ul>
-                    <li><a href="#" title="Blog">Blog</a></li>
+                    <li><a href="{{URL::route('home')}}" title="Blog">Blog</a></li>
                     <li><a href="#" title="Archives">Archives</a></li>
                     <li><a href="#" title="Gategory">Gategory</a></li>
                     <li><a href="https://github.com/lululove" title="lulu github" target="_blank" title="Github">Github</a></li>
@@ -33,13 +33,16 @@
                         <li class="pull-left">作者：{{$article->article_author}}</li>
                         <li class="pull-left">发布时间：{{$article->created_at}}</li>
                         <li class="pull-left">分类：{{$article->category->category_name}}</li>
+                        @if (Auth::check())
+                            <li>{{HTML::link('edit/'.$article->category_id.'/'.$article->article_id, '编辑')}}</li>
+                        @endif
                     </ul>
                     <div class="panel panel-default">
                         <div class="panel-body">
                             {{$article->article_content}}
                         </div>
                     </div>
-                    <h3 class="page-header">评论列表({{$article->comment->count()}})</h3>
+                    <h3 id="show_comment" class="page-header">评论列表({{$article->comment->count()}})</h3>
 
                     @foreach($article->comment->all() as $comment)
                         <div id="article_comment">

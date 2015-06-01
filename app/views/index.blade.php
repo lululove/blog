@@ -19,7 +19,7 @@
                     <li><a href="{{URL::route('home')}}" title="Blog">Blog</a></li>
                     <li><a href="#" title="Archives">Archives</a></li>
                     <li><a href="#" title="Gategory">Gategory</a></li>
-                    <li><a href="#" title="Github">Github</a></li>
+                    <li><a href="https://github.com/lululove" target="_blank" title="Github">Github</a></li>
                     <li><a href="#" title="About me">About me</a></li>
                 </ul>
             </div>
@@ -40,7 +40,11 @@
                                     </li>
                                     <li class="article-comment">
                                         <span class="glyphicon glyphicon-comment" aria-hidden="true"> </span>
-                                        <span>{{HTML::link('login', '15条评论')}}</span>
+                                        @if ($article->comment->count() == 0)
+                                            <span>暂无评论</span>
+                                        @else
+                                            <span>{{HTML::link('article/'.$article->article_id.'#show_comment', $article->comment->count().'条评论')}}</span>
+                                        @endif
                                     </li>
                                 </ul>
                             </div>

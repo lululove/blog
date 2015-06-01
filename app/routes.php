@@ -27,15 +27,14 @@ Route::get('login', 'AuthController@getLogin');
 
 Route::post('login', 'AuthController@postLogin');
 
-Route::get('admin', function() {
+Route::get('logout', 'AuthController@getLogout');
 
-    return View::make('admin.admin');
-
-});
+Route::get('admin', 'AuthController@getAdmin');
 
 Route::get('edit', 'ArticleController@getEdit');
 
 Route::get('article/{article_id}', 'ArticleController@getArticle');
+
 Route::post('article/{article_id}', 'ArticleController@postComment');
 
 Route::get('edit/new', 'ArticleController@getEditArticleNew');

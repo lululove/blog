@@ -61,7 +61,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{URL::route('home')}}">
                         <i class="glyphicon glyphicon-th-large"></i>
                         返回首页
                     </a>
