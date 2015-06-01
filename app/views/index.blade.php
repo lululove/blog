@@ -6,7 +6,18 @@
     {{HTML::style('styles/reset.css')}}
     {{HTML::style('bootstrap-3.3.4/css/bootstrap.css')}}
     {{HTML::style('styles/styles.css')}}
-
+    <script type="application/ecmascript">
+        function do_list_row_show(strid){
+            strid.getElementsByTagName('a')[0].className='on';
+            strid.getElementsByTagName('span')[0].style.display="block";
+            strid.style.position="relative";
+        }
+        function do_list_row_unshow(strid){
+            strid.getElementsByTagName('a')[0].className='';
+            strid.getElementsByTagName('span')[0].style.display="";
+            strid.style.position="";
+        }
+    </script>
 </head>
 <body>
 <div class="container-fluid">
@@ -17,7 +28,16 @@
                 <p>Sharing technology and life</p>
                 <ul>
                     <li><a href="{{URL::route('home')}}" title="Blog">Blog</a></li>
-                    <li><a href="#" title="Archives">Archives</a></li>
+                    <li onMouseOut="do_list_row_unshow(this);" onMouseOver="do_list_row_show(this);"><a href="#" title="Archives">Archives</a>
+                         <span id="show_test">
+                            <a href="#">jquery图片特效</a>
+                            <a href="#">jquery导航菜单</a>
+                            <a href="#">jquery选项卡特效</a>
+                            <a href="#">jquery文字特效</a>
+                            <a href="#">jquery表单特效</a>
+                            <a href="#">jquery表格特效</a>
+                        </span>
+                    </li>
                     <li><a href="#" title="Gategory">Gategory</a></li>
                     <li><a href="https://github.com/lululove" target="_blank" title="Github">Github</a></li>
                     <li><a href="#" title="About me">About me</a></li>
@@ -63,7 +83,7 @@
 
 {{HTML::script('jquery-1.11.3/jquery-1.11.3.js')}}
 {{HTML::script('bootstrap-3.3.4/js/bootstrap.js')}}
-{{HTML::script('js/main.js')}}
+
 
 </body>
 </html>

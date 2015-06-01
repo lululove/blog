@@ -23,6 +23,7 @@
 }
 #left-margin ul li {
     display: block;
+    position: relative;
 }
 
 #left-margin h1 a {
@@ -36,10 +37,34 @@
     font-size: 18px;
     color: #ffffff;
     text-decoration: none;
+    display: inline-block;
 }
 #left-margin ul li a:hover {
     color: #c12e2a;
 }
+
+#show_test {
+    position: absolute;
+    top: 0;
+    left: 217px;
+    width: 200px;
+    z-index: 1;
+    background-color: #a6e1ec;
+    border: 1px solid #c0a16b;
+    display: none;
+}
+
+#show_test a {
+    display: block;
+    text-decoration: none;
+}
+
+#show_test a:hover {
+    background-color: #00A8FF;
+    text-decoration: none;
+    color: #c12e2a;
+}
+
 .article h2 {
     margin-right: 2%;
     margin-left: 2%;
