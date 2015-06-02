@@ -14,7 +14,9 @@ class IndexController extends BaseController {
        // $articles = DB::table('article')->get();
 
         $articles = Article::all();
-        return View::make('index')->with(compact('articles'));
+        $categories = Category::all();
+
+        return View::make('index')->with(array('articles' => $articles, 'categories' => $categories));
     }
 
 }

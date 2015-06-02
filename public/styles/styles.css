@@ -45,12 +45,14 @@
 
 #show_test {
     position: absolute;
+    font-weight: 300;
+    font-size: 18px;
+    color: #ffffff;
     top: 0;
-    left: 217px;
-    width: 200px;
+    left: 100px;
+    width: 150px;
     z-index: 1;
-    background-color: #a6e1ec;
-    border: 1px solid #c0a16b;
+    background-color: #646464;
     display: none;
 }
 
@@ -60,7 +62,7 @@
 }
 
 #show_test a:hover {
-    background-color: #00A8FF;
+    background-color: #646464;
     text-decoration: none;
     color: #c12e2a;
 }
@@ -105,4 +107,8 @@
 
 #right-header {
     padding-bottom: 25px;
+}
+
+.article-time, .article-comment {
+    font-style: italic;
 }

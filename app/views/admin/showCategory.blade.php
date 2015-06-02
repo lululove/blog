@@ -21,8 +21,8 @@
                     <li onMouseOut="do_list_row_unshow(this);" onMouseOver="do_list_row_show(this);"><a href="#" title="Gategory">Gategory</a>
                         <span id="show_test">
                              @foreach($categories as $category)
-                                 <a href="#">{{$category->category_name}}</a></br>
-                             @endforeach
+                                <a href="#">{{$category->category_name}}</a></br>
+                            @endforeach
                         </span>
                     </li>
 
@@ -33,6 +33,10 @@
         </div>
         <div class="col-xs-9 col-xs-offset-3" id="right-content">
             <div id="right-header">
+                <?php
+                 $category_name = Category::find($articles[0]->category_id);
+                 echo '<h1>'.$category_name->category_name.'</h1>';
+                ?>
             </div>
             <div id="total-article">
                 @foreach($articles as $article)

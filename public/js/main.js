@@ -10,9 +10,9 @@ function do_list_row_show(strid){
     strid.getElementsByTagName('span')[0].style.display="block";
     strid.style.position="relative";
 }
-
 function do_list_row_unshow(strid){
     strid.getElementsByTagName('a')[0].className='';
     strid.getElementsByTagName('span')[0].style.display="";
     strid.style.position="";
 }
+

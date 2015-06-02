@@ -85,4 +85,12 @@ class ArticleController extends BaseController {
 
         return View::make('test');
     }
+
+    public function getCategory($category_id)
+    {
+        $articles = Article::where('category_id', '=', $category_id)->get();
+        $categories = Category::all();
+
+        return View::make('admin.showCategory')->with(array('articles' => $articles, 'categories' => $categories));
+    }
 }
