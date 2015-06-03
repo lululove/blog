@@ -28,8 +28,9 @@ class ArticleController extends BaseController {
     public function getArticle($article_id) {
 
         $article = Article::find($article_id);
+        $categories = Category::all();
 
-        return View::make('admin.showArticle')->with(array('article' => $article));
+        return View::make('admin.showArticle')->with(array('article' => $article, 'categories' => $categories));
     }
 
     public function postComment($article_id) {

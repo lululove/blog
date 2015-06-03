@@ -18,10 +18,15 @@
                 <p>Sharing technology and life</p>
                 <ul>
                     <li><a href="{{URL::route('home')}}" title="Blog">Blog</a></li>
-                    <li><a href="#" title="Archives">Archives</a></li>
-                    <li><a href="#" title="Gategory">Gategory</a></li>
+                    <li onMouseOut="do_list_row_unshow(this);" onMouseOver="do_list_row_show(this);"><a href="#" title="Gategory">Gategory</a>
+                        <span id="show_test">
+                             @foreach($categories as $category)
+                                {{HTML::link('category/'.$category->category_id, $category->category_name)}}<br>
+                            @endforeach
+                        </span>
+                    </li>
                     <li><a href="https://github.com/lululove" title="lulu github" target="_blank" title="Github">Github</a></li>
-                    <li><a href="#" title="About me">About me</a></li>
+                    <li>{{HTML::link('about', 'About me')}}<br></li>
                 </ul>
             </div>
         </div>

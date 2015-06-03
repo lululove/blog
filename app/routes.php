@@ -23,6 +23,12 @@ Route::get('test', function()
     return View::make('test');
 });
 
+Route::get('about', function()
+{
+    $categories = Category::all();
+    return View::make('about')->with(array('categories' => $categories));;
+});
+
 Route::get('login', 'AuthController@getLogin');
 
 Route::post('login', 'AuthController@postLogin');

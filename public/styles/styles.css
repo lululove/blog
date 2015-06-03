@@ -49,7 +49,7 @@
     font-size: 18px;
     color: #ffffff;
     top: 0;
-    left: 100px;
+    left: 90px;
     width: 150px;
     z-index: 1;
     background-color: #646464;
@@ -110,5 +110,10 @@
 }
 
 .article-time, .article-comment {
+    font-style: italic;
+}
+
+#right-header h3 {
+    color: #c12e2a;
     font-style: italic;
 }
