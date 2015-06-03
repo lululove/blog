@@ -87,6 +87,7 @@
                         <script type="text/javascript">CKEDITOR.replace('article_content')</script>
                     </div>
                     <div class="col-md-3">
+                        <!--
                         <input type="text" class="form-control">
                         <input type="button" class="btn btn-default" value="新增分类">
                         <select class="form-control">
@@ -97,6 +98,24 @@
 
                         <button type="submit" class="btn btn-default">发布文章</button>
                         <button type="button" class="btn btn-default">存为草稿</button>
+                        -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">发布</h3>
+                            </div>
+                            <div class="panel-body">
+                                Panel content
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">分类</h3>
+                            </div>
+                            <div class="panel-body">
+                                Panel content
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
