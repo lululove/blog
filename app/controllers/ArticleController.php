@@ -95,10 +95,9 @@ class ArticleController extends BaseController {
 
         return View::make('admin.showCategory')->with(array('articles' => $articles, 'categories' => $categories));
     }
-    public function ajaxTest($test) {
+    public function ajaxTest() {
 
-        return response()->json(array(
-            'test' => $test,
+        return Response::json(array(
             'status' => 1,
             'msg' => 'ok',
         ));

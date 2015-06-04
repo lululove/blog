@@ -7,15 +7,17 @@ $(function() {
 
         var test = 1111111;
         console.log('OK');
-        $.post('action("ArticleController@ajaxTest")',
-            { '_token': token ,'test': test},
-            function(data) {
 
-                alert("Data Loaded: " + data);
-            }
+        $.ajax({
+                type: "POST",
+                url: "ajax/test",
+                dataType: "json",
+                data: test,
+                success:function(data) {
 
-        );
-        alert("Data Loaded: ");
+                    alert("Hello, welcome to ajax feature.");
+                }
+        });
 
     });
 

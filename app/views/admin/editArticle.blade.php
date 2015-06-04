@@ -7,6 +7,7 @@
     {{HTML::style('bootstrap-3.3.4/css/bootstrap.css')}}
     {{HTML::style('styles/admin.css')}}
     {{HTML::script('ckeditor/ckeditor.js')}}
+    <meta name="_token" content="{{ csrf_token() }}"/>
 </head>
 <body>
 <div class="navbar navbar-static-top" role="navigation">
@@ -127,8 +128,8 @@
                                     </div>
                                 @endforeach
                                 <input type="text" class="form-control">
-                                <button style="margin-top: 10px" type="button" class="btn btn-default">新增分类</button>
-                                <a href="" id="link_test">新增分类</a>
+                                <button style="margin-top: 10px" type="button" id="link_test" class="btn btn-default">新增分类</button>
+                                <a href="" >新增分类</a>
                             </div>
                         </div>
                     </div>
