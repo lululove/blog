@@ -104,7 +104,8 @@
                                 <h3 class="panel-title">发布</h3>
                             </div>
                             <div class="panel-body">
-                                Panel content
+                                <button type="submit" class="btn btn-default">发布文章</button>
+                                <button type="button" class="btn btn-default">存为草稿</button>
                             </div>
                         </div>
 
@@ -113,7 +114,21 @@
                                 <h3 class="panel-title">分类</h3>
                             </div>
                             <div class="panel-body">
-                                Panel content
+                                @foreach($categories as $category)
+                                    <div class="radio">
+                                        <label>
+                                            @if (($category->category_id == 1 && is_null($article)) || ($category->category_id == $article->category_id))
+                                                <input type="radio" name="categoryRadios" value="{{$category->category_id}}" checked>
+                                            @else
+                                                <input type="radio" name="categoryRadios" value="{{$category->category_id}}">
+                                            @endif
+                                            {{$category->category_name}}
+                                        </label>
+                                    </div>
+                                @endforeach
+                                <input type="text" class="form-control">
+                                <button style="margin-top: 10px" type="button" class="btn btn-default">新增分类</button>
+                                <a href="" id="link_test">新增分类</a>
                             </div>
                         </div>
                     </div>

@@ -17,7 +17,7 @@
                 <p>Sharing technology and life</p>
                 <ul>
                     <li><a href="{{URL::route('home')}}" title="Blog">Blog</a></li>
-                    <li onMouseOut="do_list_row_unshow(this);" onMouseOver="do_list_row_show(this);"><a href="#" title="Gategory">Gategory</a>
+                    <li id="category_show"><a href="#" title="Gategory">Gategory</a>
                         <span id="show_test">
                              @foreach($categories as $category)
                                  {{HTML::link('category/'.$category->category_id, $category->category_name)}}<br>

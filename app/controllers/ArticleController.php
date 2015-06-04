@@ -54,12 +54,13 @@ class ArticleController extends BaseController {
 
         $article_title = Input::get('article_title');
         $article_content = Input::get('article_content');
+        $category_id_new = Input::get('categoryRadios');
 
         $article->article_title = $article_title;
         $article->article_content = $article_content;
 
         $article->article_author = 'admin';
-        $article->category_id = $category_id;
+        $article->category_id = $category_id_new;
 
         $article->save();
 
@@ -93,5 +94,13 @@ class ArticleController extends BaseController {
         $categories = Category::all();
 
         return View::make('admin.showCategory')->with(array('articles' => $articles, 'categories' => $categories));
+    }
+    public function ajaxTest($test) {
+
+        return response()->json(array(
+            'test' => $test,
+            'status' => 1,
+            'msg' => 'ok',
+        ));
     }
 }
