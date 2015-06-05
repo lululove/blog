@@ -56,5 +56,6 @@ Route::get('edit/{category_id}/{article_id}', 'ArticleController@getEditArticle'
 Route::post('edit/{category_id}/{article_id}', 'ArticleController@postEditArticle');
 
 Route::post('edit/{category_id}/ajax/test', array('as' => 'ajax', 'uses' => 'ArticleController@ajaxTest'));
+
 Route::get('ajax/test', array('as' => 'ajax', 'uses' => 'ArticleController@ajaxTest'));
 

@@ -97,9 +97,21 @@ class ArticleController extends BaseController {
     }
     public function ajaxTest() {
 
+
+        //$category = Input::get('category');
+
+       // dd($category);
+        $category = "<div class='radio'><label><input type='radio' name='categoryRadios' value='2'>Linux</label></div>";
+       // $category += "";
+      //  $category += "";
+      //  $category += "</label>";
+      //  $category += "</div>";
+
+
+
         return Response::json(array(
-            'status' => 1,
-            'msg' => 'ok',
+            'status' => 2,
+            'category' => $category,
         ));
     }
 }

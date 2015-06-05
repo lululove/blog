@@ -65,3 +65,7 @@
     padding-left: 50px;
     color: #fff;
 }
+
+#add_category_area {
+    display: none;
+}

@@ -7,7 +7,6 @@
     {{HTML::style('bootstrap-3.3.4/css/bootstrap.css')}}
     {{HTML::style('styles/admin.css')}}
     {{HTML::script('ckeditor/ckeditor.js')}}
-    <meta name="_token" content="{{ csrf_token() }}"/>
 </head>
 <body>
 <div class="navbar navbar-static-top" role="navigation">
@@ -114,7 +113,7 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title">分类</h3>
                             </div>
-                            <div class="panel-body">
+                            <div id="edit_category" class="panel-body">
                                 @foreach($categories as $category)
                                     <div class="radio">
                                         <label>
@@ -127,9 +126,11 @@
                                         </label>
                                     </div>
                                 @endforeach
-                                <input type="text" class="form-control">
-                                <button style="margin-top: 10px" type="button" id="link_test" class="btn btn-default">新增分类</button>
-                                <a href="" >新增分类</a>
+                                <a href="javascript:addLinkClick()">新增分类</a>
+                                <div id="add_category_area">
+                                    <input style="margin-top: 10px" type="text" class="form-control">
+                                    <button style="margin-top: 10px" type="button" class="btn btn-default">添加</button>
+                                </div>
                             </div>
                         </div>
                     </div>
