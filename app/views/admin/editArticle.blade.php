@@ -113,23 +113,38 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title">分类</h3>
                             </div>
-                            <div id="edit_category" class="panel-body">
-                                @foreach($categories as $category)
-                                    <div class="radio">
-                                        <label>
-                                            @if (($category->category_id == 1 && is_null($article)) || ($category->category_id == $article->category_id))
-                                                <input type="radio" name="categoryRadios" value="{{$category->category_id}}" checked>
-                                            @else
-                                                <input type="radio" name="categoryRadios" value="{{$category->category_id}}">
-                                            @endif
-                                            {{$category->category_name}}
-                                        </label>
+                            <div class="panel-body">
+                                <div id="edit_category" >
+                                    @foreach($categories as $category)
+                                        <div class="radio">
+                                            <label>
+                                                @if (($category->category_id == 1 && is_null($article)) || ($category->category_id == $article->category_id))
+                                                    <input type="radio" name="category_id" value="{{$category->category_id}}" checked>
+                                                @else
+                                                    <input type="radio" name="category_id" value="{{$category->category_id}}">
+                                                @endif
+                                                {{$category->category_name}}
+                                            </label>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div>
+                                    <a href="javascript:addLinkClick()">新增分类</a>
+                                    <div id="add_category_area">
+                                        <input style="margin-top: 10px" type="text" class="form-control">
+                                        <button style="margin-top: 10px" type="button" class="btn btn-default">添加</button>
                                     </div>
-                                @endforeach
-                                <a href="javascript:addLinkClick()">新增分类</a>
-                                <div id="add_category_area">
-                                    <input style="margin-top: 10px" type="text" class="form-control">
-                                    <button style="margin-top: 10px" type="button" class="btn btn-default">添加</button>
+                                </div>
+                                <div style="margin-top: 10px">
+                                    <a href="javascript:rmLinkClick()">删除分类</a>
+                                    <div id="rm_category_area">
+                                        <select style="margin-top: 10px" name="category_select" class="form-control">
+                                            @foreach($categories as $category)
+                                                <option value="{{$category->category_id}}">{{$category->category_name}}</option>
+                                            @endforeach
+                                        </select>
+                                        <button style="margin-top: 10px" type="button" class="btn btn-default">删除</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

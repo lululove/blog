@@ -54,7 +54,7 @@ class ArticleController extends BaseController {
 
         $article_title = Input::get('article_title');
         $article_content = Input::get('article_content');
-        $category_id_new = Input::get('categoryRadios');
+        $category_id_new = Input::get('category_id');
 
         $article->article_title = $article_title;
         $article->article_content = $article_content;
@@ -77,7 +77,7 @@ class ArticleController extends BaseController {
     public function postEditArticleNew() {
 
         $article = new Article();
-        $article->category_id = 2;//Input::get('category_id');
+        $article->category_id = Input::get('category_id');
         $article->article_title = Input::get('article_title');
         $article->article_content = Input::get('article_content');
         $article->article_author = 'admin';
@@ -97,21 +97,15 @@ class ArticleController extends BaseController {
     }
     public function ajaxTest() {
 
+        $category = new Category();
+        $category->category_name = Input::get('category_name');
+        $category->save();
 
-        //$category = Input::get('category');
-
-       // dd($category);
-        $category = "<div class='radio'><label><input type='radio' name='categoryRadios' value='2'>Linux</label></div>";
-       // $category += "";
-      //  $category += "";
-      //  $category += "</label>";
-      //  $category += "</div>";
-
-
+        $category_div = "<div class='radio'><label><input type='radio' name='category_id' value='".$category->category_id."' checked>".$category->category_name."</label></div>";
 
         return Response::json(array(
             'status' => 2,
-            'category' => $category,
+            'category_div' => $category_div,
         ));
     }
 }

@@ -18,38 +18,44 @@ $(function() {
 
     $("#add_category_area button").click(function () {
 
-        var category = $("#add_category_area input").val();
-        var html = ""
+        var category_name = $("#add_category_area input").val();
 
         $.ajax({
             type: "POST",
             url: "ajax/test",
             dataType: "json",
-            data: {category : category},
+            data: {category_name : category_name},
             success: function (data) {
-
-                console.log(data);
-                $("#edit_category")
-
+                $("#edit_category").append(data.category_div);
             }
         })
     });
 
+    $("#rm_category_area button").click(function () {
+
+        var category_name = $("#rm_category_area option:selected").val();
+
+        console.log(category_name);
+        /*
+        $.ajax({
+            type: "POST",
+            url: "ajax/test",
+            dataType: "json",
+            data: {category_name : category_name},
+            success: function (data) {
+                $("#edit_category").append(data.category_div);
+            }
+        })*/
+
+
+    });
+
 });
 
-/*
- console.log('OK');
- $.ajax({
- type: "POST",
- url: "ajax/test",
- dataType: "json",
- data: test,
- success:function(data) {
-
- alert("Hello, welcome to ajax feature.");
- }
- });
-*/
 function addLinkClick() {
     $("#add_category_area").toggle();
+}
+
+function rmLinkClick() {
+    $("#rm_category_area").toggle();
 }
