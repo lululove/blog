@@ -24,7 +24,10 @@ $(function() {
             type: "POST",
             url: "ajax/test",
             dataType: "json",
-            data: {category_name : category_name},
+            data: {
+                msg_type: 0,
+                category_name : category_name
+            },
             success: function (data) {
                 $("#edit_category").append(data.category_div);
             }
@@ -33,19 +36,25 @@ $(function() {
 
     $("#rm_category_area button").click(function () {
 
-        var category_name = $("#rm_category_area option:selected").val();
+        var category_id = $("#rm_category_area option:selected").val();
 
-        console.log(category_name);
-        /*
+       // console.log(category_id);
+
         $.ajax({
             type: "POST",
             url: "ajax/test",
             dataType: "json",
-            data: {category_name : category_name},
+            data: {
+                msg_type: 1,
+                category_id : category_id
+            },
             success: function (data) {
-                $("#edit_category").append(data.category_div);
+
+                console.log("#edit_category_"+category_id);
+                $("#edit_category_"+category_id).remove();
+
             }
-        })*/
+        })
 
 
     });

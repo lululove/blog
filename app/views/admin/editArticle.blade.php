@@ -39,7 +39,7 @@
                     <ul id="ArticleGategory" class="nav nav-list collapse secondmenu" style="height: 0px;">
                         <li><a href="#">全部分类</a></li>
                         @foreach($categories as $category)
-                            <li><a href="#">{{$category->category_name}}</a></li>
+                            <li id="ArticleGategory_{{$category->category_id}}"><a href="#">{{$category->category_name}}</a></li>
                         @endforeach
                     </ul>
                 </li>
@@ -116,7 +116,7 @@
                             <div class="panel-body">
                                 <div id="edit_category" >
                                     @foreach($categories as $category)
-                                        <div class="radio">
+                                        <div class="radio" id="edit_category_{{$category->category_id}}">
                                             <label>
                                                 @if (($category->category_id == 1 && is_null($article)) || ($category->category_id == $article->category_id))
                                                     <input type="radio" name="category_id" value="{{$category->category_id}}" checked>
@@ -140,7 +140,7 @@
                                     <div id="rm_category_area">
                                         <select style="margin-top: 10px" name="category_select" class="form-control">
                                             @foreach($categories as $category)
-                                                <option value="{{$category->category_id}}">{{$category->category_name}}</option>
+                                                <option id="select_category_{{$category->category_id}}" value="{{$category->category_id}}">{{$category->category_name}}</option>
                                             @endforeach
                                         </select>
                                         <button style="margin-top: 10px" type="button" class="btn btn-default">删除</button>

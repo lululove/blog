@@ -64,7 +64,7 @@ class ArticleController extends BaseController {
 
         $article->save();
 
-        return View::make('test');
+        return Redirect::to('article/'.$article->article_id);
     }
 
     public function getEditArticleNew() {
@@ -97,15 +97,37 @@ class ArticleController extends BaseController {
     }
     public function ajaxTest() {
 
-        $category = new Category();
-        $category->category_name = Input::get('category_name');
-        $category->save();
+        $msg_type = Input::get('msg_type');
 
-        $category_div = "<div class='radio'><label><input type='radio' name='category_id' value='".$category->category_id."' checked>".$category->category_name."</label></div>";
+        if ($msg_type == 0) {
 
-        return Response::json(array(
-            'status' => 2,
-            'category_div' => $category_div,
-        ));
+            $category = new Category();
+            $category->category_name = Input::get('category_name');
+            $category->save();
+
+            $category_div = "<div class='radio' id='edit_category_".$category->category_id."'><label><input type='radio' name='category_id' value='" . $category->category_id . "' checked>" . $category->category_name . "</label></div>";
+
+            return Response::json(array(
+                'msg_type' => $msg_type,
+                'category_div' => $category_div,
+            ));
+        } else if ($msg_type == 1) {
+
+            $category_id = Input::get('category_id');
+
+            $articles = Article::where('category_id', '=', $category_id)->get();
+
+            foreach($articles as $article) {
+                $article->category_id = 1;
+                $article->save();
+            }
+
+            Category::destroy($category_id);
+
+            return Response::json(array(
+                'msg_type' => $msg_type,
+                'category_id' => $category_id,
+            ));
+        }
     }
 }
