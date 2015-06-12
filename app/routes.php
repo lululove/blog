@@ -37,7 +37,7 @@ Route::get('logout', 'AuthController@getLogout');
 
 Route::get('admin', 'AuthController@getAdmin');
 
-Route::get('edit', 'ArticleController@getEdit');
+Route::get('edit', array('as' => 'edit', 'uses' => 'ArticleController@getEdit'));
 
 Route::get('article/{article_id}', 'ArticleController@getArticle');
 

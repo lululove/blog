@@ -23,7 +23,7 @@
                 <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
 
                     <li class="active">
-                        <a href="#">
+                        <a href="admin">
                             <i class="glyphicon glyphicon-eye-open"></i>
                             状态
                             <span class="label label-warning pull-right">5</span>
@@ -31,17 +31,10 @@
                     </li>
 
                     <li>
-                        <a href="#ArticleGategory" class="nav-header collapsed" data-toggle="collapse">
+                        <a href="{{URL::route('edit')}}">
                             <i class="glyphicon glyphicon-pushpin"></i>
                             文章
-                            <span class="pull-right glyphicon glyphicon-chevron-down"></span>
                         </a>
-                        <ul id="ArticleGategory" class="nav nav-list collapse secondmenu" style="height: 0px;">
-                            <li><a href="#">全部分类</a></li>
-                            @foreach($categories as $category)
-                                <li><a href="#">{{$category->category_name}}</a></li>
-                            @endforeach
-                        </ul>
                     </li>
 
                     <li>

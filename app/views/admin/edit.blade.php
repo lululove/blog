@@ -23,7 +23,7 @@
             <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
 
                 <li>
-                    <a href="#">
+                    <a href="admin">
                         <i class="glyphicon glyphicon-eye-open"></i>
                         状态
                         <span class="label label-warning pull-right">5</span>
@@ -31,17 +31,10 @@
                 </li>
 
                 <li class="active">
-                    <a href="#ArticleGategory" class="nav-header collapsed" data-toggle="collapse">
+                    <a href="{{URL::route('home')}}">
                         <i class="glyphicon glyphicon-pushpin"></i>
                         文章
-                        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
                     </a>
-                    <ul id="ArticleGategory" class="nav nav-list collapse secondmenu" style="height: 0px;">
-                        <li><a href="#">全部分类</a></li>
-                        @foreach($categories as $category)
-                            <li><a href="#">{{$category->category_name}}</a></li>
-                        @endforeach
-                    </ul>
                 </li>
 
                 <li>
@@ -75,7 +68,32 @@
             </ul>
         </div>
         <div class="col-md-10">
-            <h1>{{HTML::link('edit/new', '写文章')}}</h1>
+            <h2>{{HTML::link('edit/new', '写文章')}}</h2>
+            <ul class="clearfix">
+                <li class="pull-left"><a href="#">全部({{Article::count()}})</a>&nbsp;|</li>
+                <li class="pull-left">&nbsp;<a href="#">已发布(10)</a>&nbsp;|</li>
+                <li class="pull-left">&nbsp;<a href="#">草稿(2)</a></li>
+            </ul>
+            <form class="form-inline clearfix">
+                <select style="width: 10.5%" class="form-control">
+                    <option>批量操作</option>
+                    <option>转成草稿</option>
+                    <option>发布文章</option>
+                    <option>移至回收站</option>
+                </select>
+                <button class="btn btn-default" type="button">应用</button>
+
+                <select style="width: 10.5%; margin-left: 15px" class="form-control">
+                    <option>全部分类</option>
+                    @foreach($categories as $category)
+                        <option value="{{$category->category_id}}">{{$category->category_name}}</option>
+                    @endforeach
+                </select>
+                <button class="btn btn-default" type="button">筛选</button>
+
+                <button style="margin-left: 5px" class="btn btn-default pull-right" type="button">搜索</button>
+                <input class="form-control pull-right" type="text" placeholder="搜索关键字">
+            </form>
             <table class="table table-striped">
                 <thead>
                 <tr>

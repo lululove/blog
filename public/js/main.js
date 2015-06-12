@@ -30,6 +30,7 @@ $(function() {
             },
             success: function (data) {
                 $("#edit_category").append(data.category_div);
+                $("#rm_category_area select").append(data.category_opinion);
             }
         })
     });
@@ -50,9 +51,8 @@ $(function() {
             },
             success: function (data) {
 
-                console.log("#edit_category_"+category_id);
                 $("#edit_category_"+category_id).remove();
-
+                $("#select_category_"+category_id).remove();
             }
         })
 

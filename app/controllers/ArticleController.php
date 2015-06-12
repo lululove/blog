@@ -107,9 +107,12 @@ class ArticleController extends BaseController {
 
             $category_div = "<div class='radio' id='edit_category_".$category->category_id."'><label><input type='radio' name='category_id' value='" . $category->category_id . "' checked>" . $category->category_name . "</label></div>";
 
+            $category_opinion = "<option id='select_category_".$category->category_id."' value='".$category->category_id."'>".$category->category_name."</option>";
+
             return Response::json(array(
                 'msg_type' => $msg_type,
                 'category_div' => $category_div,
+                'category_opinion' => $category_opinion,
             ));
         } else if ($msg_type == 1) {
 

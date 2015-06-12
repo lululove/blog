@@ -31,17 +31,10 @@
                 </li>
 
                 <li class="active">
-                    <a href="#ArticleGategory" class="nav-header collapsed" data-toggle="collapse">
+                    <a href="#">
                         <i class="glyphicon glyphicon-pushpin"></i>
                         文章
-                        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
                     </a>
-                    <ul id="ArticleGategory" class="nav nav-list collapse secondmenu" style="height: 0px;">
-                        <li><a href="#">全部分类</a></li>
-                        @foreach($categories as $category)
-                            <li id="ArticleGategory_{{$category->category_id}}"><a href="#">{{$category->category_name}}</a></li>
-                        @endforeach
-                    </ul>
                 </li>
 
                 <li>
