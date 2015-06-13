@@ -59,3 +59,4 @@ Route::post('edit/{category_id}/ajax/test', array('as' => 'ajax', 'uses' => 'Art
 
 Route::get('ajax/test', array('as' => 'ajax', 'uses' => 'ArticleController@ajaxTest'));
 
+Route::post('ajax/test', array('as' => 'ajax', 'uses' => 'ArticleController@ajaxTest'));

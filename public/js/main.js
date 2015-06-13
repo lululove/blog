@@ -59,6 +59,29 @@ $(function() {
 
     });
 
+    $("#screen_category button").click(function () {
+
+        var category_id = $("#screen_category option:selected").val();
+
+        console.log(category_id);
+
+        $.ajax({
+            type: "POST",
+            url: "ajax/test",
+            dataType: "json",
+            data: {
+                msg_type: 2,
+                category_id : category_id
+            },
+            success: function (data) {
+
+               console.log(data);
+
+            }
+        })
+
+    });
+
 });
 
 function addLinkClick() {

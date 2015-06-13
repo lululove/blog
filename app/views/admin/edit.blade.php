@@ -31,7 +31,7 @@
                 </li>
 
                 <li class="active">
-                    <a href="{{URL::route('home')}}">
+                    <a href="{{URL::route('edit')}}">
                         <i class="glyphicon glyphicon-pushpin"></i>
                         文章
                     </a>
@@ -83,14 +83,15 @@
                 </select>
                 <button class="btn btn-default" type="button">应用</button>
 
-                <select style="width: 10.5%; margin-left: 15px" class="form-control">
-                    <option>全部分类</option>
-                    @foreach($categories as $category)
-                        <option value="{{$category->category_id}}">{{$category->category_name}}</option>
-                    @endforeach
-                </select>
-                <button class="btn btn-default" type="button">筛选</button>
-
+                <div style="display: inline" id="screen_category">
+                    <select style="width: 10.5%; margin-left: 15px" class="form-control">
+                        <option value="0">全部分类</option>
+                        @foreach($categories as $category)
+                            <option value="{{$category->category_id}}">{{$category->category_name}}</option>
+                        @endforeach
+                    </select>
+                    <button class="btn btn-default" type="button">筛选</button>
+                </div>
                 <button style="margin-left: 5px" class="btn btn-default pull-right" type="button">搜索</button>
                 <input class="form-control pull-right" type="text" placeholder="搜索关键字">
             </form>

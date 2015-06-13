@@ -114,6 +114,7 @@ class ArticleController extends BaseController {
                 'category_div' => $category_div,
                 'category_opinion' => $category_opinion,
             ));
+
         } else if ($msg_type == 1) {
 
             $category_id = Input::get('category_id');
@@ -131,6 +132,30 @@ class ArticleController extends BaseController {
                 'msg_type' => $msg_type,
                 'category_id' => $category_id,
             ));
+
+        } else if ($msg_type == 2) {
+
+            $category_id = Input::get('category_id');
+
+            if ($category_id == 0) {
+
+                $articles = Article::all();
+            } else {
+
+                $articles = Article::where('category_id', '=', $category_id)->get();
+            }
+
+            $categories = Category::all();
+
+            //return Response::json(array(
+            //    'msg_type' => $msg_type,
+            //    'category_id' => $category_id,
+            //));
+
+            return View::make('test');
+            //return Response::view('test');
+            //return View::make('admin.edit')->with(array('articles' => $articles, 'categories' => $categories));
         }
+
     }
 }
