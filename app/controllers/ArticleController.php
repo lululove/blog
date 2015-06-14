@@ -158,11 +158,36 @@ class ArticleController extends BaseController {
             //return View::make('admin.edit')->with(array('articles' => $articles, 'categories' => $categories));
         }*/
 
-        return Redirect::route('home');
+        //return Redirect::route('home');
+        $category_id = Input::get('screen_category');
 
+        if ($category_id == 0) {
+
+            $articles = Article::all();
+        } else {
+
+            $articles = Article::where('category_id', '=', $category_id)->get();
+        }
+
+        $categories = Category::all();
+
+        return Response::view('admin.edit')->with(array('articles' => $articles, 'categories' => $categories));
     }
 
     public function formTest() {
-        return Redirect::route('home');
+
+        $category_id = Input::get('screen_category');
+
+        if ($category_id == 0) {
+
+            $articles = Article::all();
+        } else {
+
+            $articles = Article::where('category_id', '=', $category_id)->get();
+        }
+
+        $categories = Category::all();
+
+        return View::make('admin.edit')->with(array('articles' => $articles, 'categories' => $categories));
     }
 }
