@@ -152,7 +152,8 @@ class ArticleController extends BaseController {
             //    'category_id' => $category_id,
             //));
 
-            return View::make('test');
+            //return View::make('test');
+            return Redirect::route('home');
             //return Response::view('test');
             //return View::make('admin.edit')->with(array('articles' => $articles, 'categories' => $categories));
         }

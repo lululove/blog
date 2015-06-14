@@ -74,27 +74,30 @@
                 <li class="pull-left">&nbsp;<a href="#">已发布(10)</a>&nbsp;|</li>
                 <li class="pull-left">&nbsp;<a href="#">草稿(2)</a></li>
             </ul>
-            <form class="form-inline clearfix">
-                <select style="width: 10.5%" class="form-control">
-                    <option>批量操作</option>
-                    <option>转成草稿</option>
-                    <option>发布文章</option>
-                    <option>移至回收站</option>
-                </select>
-                <button class="btn btn-default" type="button">应用</button>
-
-                <div style="display: inline" id="screen_category">
-                    <select style="width: 10.5%; margin-left: 15px" class="form-control">
+            <div class="clearfix">
+                <form class="form-inline pull-left">
+                    <select class="form-control">
+                        <option>批量操作</option>
+                        <option>转成草稿</option>
+                        <option>发布文章</option>
+                        <option>移至回收站</option>
+                    </select>
+                    <button class="btn btn-default" type="button">应用</button>
+                </form>
+                <form id="screen_category" class="form-inline pull-left">
+                    <select style="margin-left: 15px" class="form-control">
                         <option value="0">全部分类</option>
                         @foreach($categories as $category)
                             <option value="{{$category->category_id}}">{{$category->category_name}}</option>
                         @endforeach
                     </select>
                     <button class="btn btn-default" type="button">筛选</button>
-                </div>
-                <button style="margin-left: 5px" class="btn btn-default pull-right" type="button">搜索</button>
-                <input class="form-control pull-right" type="text" placeholder="搜索关键字">
-            </form>
+                </form>
+                <form class="form-inline  pull-right">
+                    <input class="form-control" type="text" placeholder="搜索关键字">
+                    <button style="margin-left: 5px" class="btn btn-default" type="button">搜索</button>
+                </form>
+            </div>
             <table class="table table-striped">
                 <thead>
                 <tr>
