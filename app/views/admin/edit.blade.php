@@ -84,14 +84,14 @@
                     </select>
                     <button class="btn btn-default" type="button">应用</button>
                 </form>
-                <form id="screen_category" class="form-inline pull-left">
+                <form method="post" action="{{action('ArticleController@ajaxTest')}}" id="screen_category" class="form-inline pull-left">
                     <select style="margin-left: 15px" class="form-control">
                         <option value="0">全部分类</option>
                         @foreach($categories as $category)
                             <option value="{{$category->category_id}}">{{$category->category_name}}</option>
                         @endforeach
                     </select>
-                    <button class="btn btn-default" type="button">筛选</button>
+                    <button class="btn btn-default" type="submit">筛选</button>
                 </form>
                 <form class="form-inline  pull-right">
                     <input class="form-control" type="text" placeholder="搜索关键字">

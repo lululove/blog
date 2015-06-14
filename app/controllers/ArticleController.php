@@ -96,7 +96,7 @@ class ArticleController extends BaseController {
         return View::make('admin.showCategory')->with(array('articles' => $articles, 'categories' => $categories));
     }
     public function ajaxTest() {
-
+/*
         $msg_type = Input::get('msg_type');
 
         if ($msg_type == 0) {
@@ -156,7 +156,13 @@ class ArticleController extends BaseController {
             return Redirect::route('home');
             //return Response::view('test');
             //return View::make('admin.edit')->with(array('articles' => $articles, 'categories' => $categories));
-        }
+        }*/
 
+        return Redirect::route('home');
+
+    }
+
+    public function formTest() {
+        return Redirect::route('home');
     }
 }

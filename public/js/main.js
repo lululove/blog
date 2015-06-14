@@ -58,7 +58,7 @@ $(function() {
 
 
     });
-
+/*
     $("#screen_category button").click(function () {
 
         var category_id = $("#screen_category option:selected").val();
@@ -79,7 +79,7 @@ $(function() {
         })
 
     });
-
+*/
 });
 
 function addLinkClick() {
