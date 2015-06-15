@@ -39,8 +39,6 @@ $(function() {
 
         var category_id = $("#rm_category_area option:selected").val();
 
-       // console.log(category_id);
-
         $.ajax({
             type: "POST",
             url: "ajax/test",
@@ -58,11 +56,16 @@ $(function() {
 
 
     });
-/*
-    $("#screen_category button").click(function () {
 
-        var category_id = $("#screen_category option:selected").val();
+    $("#to_save_draft").click(function () {
 
+        var article_title = $("#ArticleTitle").val();
+        //var article_comment = $("#ArticleComment").val();
+        var article_comment = getContenet();
+        var category_id = $("#rm_category_area option:selected").val();
+
+        console.log(article_title);
+        console.log(article_comment);
         console.log(category_id);
 
         $.ajax({
@@ -71,15 +74,19 @@ $(function() {
             dataType: "json",
             data: {
                 msg_type: 2,
-                category_id : category_id
+                category_id : category_id,
+                article_comment : article_comment,
+                article_title : article_title
             },
             success: function (data) {
-
+                console.log("response ok");
             }
         })
 
+
     });
-*/
+
+
 });
 
 function addLinkClick() {

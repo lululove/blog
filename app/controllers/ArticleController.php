@@ -96,7 +96,7 @@ class ArticleController extends BaseController {
         return View::make('admin.showCategory')->with(array('articles' => $articles, 'categories' => $categories));
     }
     public function ajaxTest() {
-/*
+
         $msg_type = Input::get('msg_type');
 
         if ($msg_type == 0) {
@@ -133,50 +133,21 @@ class ArticleController extends BaseController {
                 'category_id' => $category_id,
             ));
 
-        } else if ($msg_type == 2) {
-
-            $category_id = Input::get('category_id');
-
-            if ($category_id == 0) {
-
-                $articles = Article::all();
-            } else {
-
-                $articles = Article::where('category_id', '=', $category_id)->get();
-            }
-
-            $categories = Category::all();
-
-            //return Response::json(array(
-            //    'msg_type' => $msg_type,
-            //    'category_id' => $category_id,
-            //));
-
-            //return View::make('test');
-            return Redirect::route('home');
-            //return Response::view('test');
-            //return View::make('admin.edit')->with(array('articles' => $articles, 'categories' => $categories));
-        }*/
-
-        //return Redirect::route('home');
-        $category_id = Input::get('screen_category');
-
-        if ($category_id == 0) {
-
-            $articles = Article::all();
-        } else {
-
-            $articles = Article::where('category_id', '=', $category_id)->get();
         }
 
-        $categories = Category::all();
+        else if ($msg_type == 2) {
 
-        return Response::view('admin.edit')->with(array('articles' => $articles, 'categories' => $categories));
+            return Response::json(array(
+                'msg_type' => $msg_type
+            ));
+
+        }
+
     }
 
-    public function formTest() {
+    public function postFilterCategory() {
 
-        $category_id = Input::get('screen_category');
+        $category_id = Input::get('filter_category');
 
         if ($category_id == 0) {
 

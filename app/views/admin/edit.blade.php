@@ -71,8 +71,8 @@
             <h2>{{HTML::link('edit/new', '写文章')}}</h2>
             <ul class="clearfix">
                 <li class="pull-left"><a href="#">全部({{Article::count()}})</a>&nbsp;|</li>
-                <li class="pull-left">&nbsp;<a href="#">已发布(10)</a>&nbsp;|</li>
-                <li class="pull-left">&nbsp;<a href="#">草稿(2)</a></li>
+                <li class="pull-left">&nbsp;<a href="#">已发布({{Article::where('is_draft', '=', 0)->count()}})</a>&nbsp;|</li>
+                <li class="pull-left">&nbsp;<a href="#">草稿({{Article::where('is_draft', '=', 1)->count()}})</a></li>
             </ul>
             <div class="clearfix">
                 <form class="form-inline pull-left">
@@ -82,10 +82,10 @@
                         <option>发布文章</option>
                         <option>移至回收站</option>
                     </select>
-                    <button class="btn btn-default" type="button">应用</button>
+                    <button id="operation_article" class="btn btn-default" type="button">应用</button>
                 </form>
-                <form method="post" action="{{action('ArticleController@ajaxTest')}}" id="screen_category" class="form-inline pull-left">
-                    <select name="screen_category" style="margin-left: 15px" class="form-control">
+                <form method="post" action="{{action('ArticleController@postFilterCategory')}}" class="form-inline pull-left">
+                    <select name="filter_category" style="margin-left: 15px" class="form-control">
                         <option value="0">全部分类</option>
                         @foreach($categories as $category)
                             <option value="{{$category->category_id}}">{{$category->category_name}}</option>
@@ -109,7 +109,6 @@
                 </tr>
                 </thead>
                 <tbody>
-
                 @foreach( $articles as $article)
                     <tr>
                         <td><input type="checkbox" name="article_id" value="{{$article->article_title}}"> {{HTML::link(('edit/'.$article->category_id.'/'.$article->article_id), $article->article_title)}}</td>

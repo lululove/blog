@@ -49,6 +49,7 @@ Route::get('edit/new', 'ArticleController@getEditArticleNew');
 
 Route::post('edit/new', 'ArticleController@postEditArticleNew');
 
+Route::post('edit/filter', 'ArticleController@postFilterCategory');
 
 Route::get('edit/{category_id}/{article_id}', 'ArticleController@getEditArticle')
     ->where(array('category_id' => '[0-9]+', 'article_id' => '[0-9]+'));

@@ -6,6 +6,7 @@
     {{HTML::style('styles/reset.css')}}
     {{HTML::style('bootstrap-3.3.4/css/bootstrap.css')}}
     {{HTML::style('styles/admin.css')}}
+
     {{HTML::script('ckeditor/ckeditor.js')}}
 </head>
 <body>
@@ -76,29 +77,30 @@
                             <label for="ArticleTitle">文章标题</label>
                             <input type="text" name="article_title" class="form-control" id="ArticleTitle" value="{{(is_null($article) ? null:$article->article_title)}}" placeholder="填写文章标题">
                         </div>
-                        <textarea name="article_content">{{(is_null($article) ? null:$article->article_content)}}</textarea>
-                        <script type="text/javascript">CKEDITOR.replace('article_content')</script>
+                        <textarea name="article_content" id="ArticleComment">{{(is_null($article) ? null:$article->article_content)}}</textarea>
+                        <script type="text/javascript">
+                            CKEDITOR.replace('article_content');
+                            function getContenet(){
+                                return CKEDITOR.instances.content.getData();    //获取textarea的值
+                            }
+                        </script>
                     </div>
                     <div class="col-md-3">
-                        <!--
-                        <input type="text" class="form-control">
-                        <input type="button" class="btn btn-default" value="新增分类">
-                        <select class="form-control">
-                            @foreach($categories as $category)
-                                <option>{{$category->category_name}}</option>
-                            @endforeach
-                        </select>
-
-                        <button type="submit" class="btn btn-default">发布文章</button>
-                        <button type="button" class="btn btn-default">存为草稿</button>
-                        -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title">发布</h3>
                             </div>
                             <div class="panel-body">
+                                <dl class="dl-horizontal">
+                                    <dt style="width: 100px"><i class="glyphicon glyphicon-pencil"></i>&nbsp;文章状态：</dt>
+                                    <dd style="margin-left: 105px">{{is_null($article) ? '草稿' : ($article->is_draft == 0 ? '已发布' : '草稿')}}</dd>
+                                    <dt style="width: 100px"><i class="glyphicon glyphicon-time"></i>&nbsp;创建时间：</dt>
+                                    <dd style="margin-left: 105px">{{is_null($article) ? '0000-00-00 00:00' : date('Y-m-d H:i',strtotime($article->created_at))}}</dd>
+                                    <dt style="width: 100px"><i class="glyphicon glyphicon-time"></i>&nbsp;创建时间：</dt>
+                                    <dd style="margin-left: 105px">{{is_null($article) ? '0000-00-00 00:00' : date('Y-m-d H:i',strtotime($article->updated_at))}}</dd>
+                                </dl>
                                 <button type="submit" class="btn btn-default">发布文章</button>
-                                <button type="button" class="btn btn-default">存为草稿</button>
+                                <button id="to_save_draft" type="button" class="btn btn-default">存为草稿</button>
                             </div>
                         </div>
 
@@ -111,7 +113,7 @@
                                     @foreach($categories as $category)
                                         <div class="radio" id="edit_category_{{$category->category_id}}">
                                             <label>
-                                                @if (($category->category_id == 1 && is_null($article)) || ($category->category_id == $article->category_id))
+                                                @if (($category->category_id == 1 && is_null($article)) || (!is_null($article) && $category->category_id == $article->category_id))
                                                     <input type="radio" name="category_id" value="{{$category->category_id}}" checked>
                                                 @else
                                                     <input type="radio" name="category_id" value="{{$category->category_id}}">
@@ -148,10 +150,13 @@
     </div>
 </div>
 
+
+
+
+</body>
+
 {{HTML::script('jquery-1.11.3/jquery-1.11.3.js')}}
 {{HTML::script('bootstrap-3.3.4/js/bootstrap.js')}}
 {{HTML::script('js/main.js')}}
 
-
-</body>
 </html>
