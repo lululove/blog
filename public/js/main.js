@@ -22,7 +22,7 @@ $(function() {
 
         $.ajax({
             type: "POST",
-            url: "ajax/test",
+            url: "/blog/public/ajax/post",
             dataType: "json",
             data: {
                 msg_type: 0,
@@ -41,7 +41,7 @@ $(function() {
 
         $.ajax({
             type: "POST",
-            url: "ajax/test",
+            url: "/blog/public/ajax/post",
             dataType: "json",
             data: {
                 msg_type: 1,
@@ -60,32 +60,52 @@ $(function() {
     $("#to_save_draft").click(function () {
 
         var article_title = $("#ArticleTitle").val();
-        //var article_comment = $("#ArticleComment").val();
-        var article_comment = getContenet();
+        var article_content = getContenet();
         var category_id = $("#rm_category_area option:selected").val();
-
-        console.log(article_title);
-        console.log(article_comment);
-        console.log(category_id);
+        var article_id = $("#ArticleId").text();
 
         $.ajax({
             type: "POST",
-            url: "ajax/test",
+            url: "/blog/public/ajax/post",
             dataType: "json",
             data: {
                 msg_type: 2,
                 category_id : category_id,
-                article_comment : article_comment,
-                article_title : article_title
+                article_content : article_content,
+                article_title : article_title,
+                article_id : article_id
             },
             success: function (data) {
+
+                $("#ArticleId").text(data.article_id);
+                console.log(data.article_id);
                 console.log("response ok");
             }
         })
 
-
     });
 
+    //.is(':checked'):
+    //checkBoxArticle_id
+    $("#operation_article").click(function () {
+        var length = $("#checkBoxArticle_id tr").length;
+
+        console.log(length);
+        /*
+        $.ajax({
+            type: "POST",
+            url: "/blog/public/ajax/post",
+            dataType: "json",
+            data: {
+                msg_type: 3
+
+            },
+            success: function (data) {
+                console.log("response ok");
+            }
+        })*/
+
+    });
 
 });
 

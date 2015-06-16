@@ -62,6 +62,8 @@ class ArticleController extends BaseController {
         $article->article_author = 'admin';
         $article->category_id = $category_id_new;
 
+        $article->is_draft = 0;
+
         $article->save();
 
         return Redirect::to('article/'.$article->article_id);
@@ -81,6 +83,7 @@ class ArticleController extends BaseController {
         $article->article_title = Input::get('article_title');
         $article->article_content = Input::get('article_content');
         $article->article_author = 'admin';
+        $article->is_draft = 0;
 
         $article->save();
 
@@ -137,8 +140,27 @@ class ArticleController extends BaseController {
 
         else if ($msg_type == 2) {
 
+            $article_id = Input::get('article_id');
+
+            if ($article_id == null) {
+
+                $article = new Article();
+                $article->article_author = 'admin';
+
+            } else {
+
+                $article = Article::find($article_id);
+            }
+            $article->is_draft = 1;
+            $article->article_title = Input::get('article_title');
+            $article->article_content = Input::get('article_content');
+            $article->category_id = Input::get('category_id');
+
+            $article->save();
+
             return Response::json(array(
-                'msg_type' => $msg_type
+                'msg_type' => $msg_type,
+                'article_id' => $article->article_id,
             ));
 
         }

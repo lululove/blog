@@ -26,7 +26,7 @@ Route::get('test', function()
 Route::get('about', function()
 {
     $categories = Category::all();
-    return View::make('about')->with(array('categories' => $categories));;
+    return View::make('about')->with(array('categories' => $categories));
 });
 
 Route::get('login', 'AuthController@getLogin');
@@ -56,8 +56,5 @@ Route::get('edit/{category_id}/{article_id}', 'ArticleController@getEditArticle'
 
 Route::post('edit/{category_id}/{article_id}', 'ArticleController@postEditArticle');
 
-Route::post('edit/{category_id}/ajax/test', array('as' => 'ajax', 'uses' => 'ArticleController@ajaxTest'));
+Route::post('ajax/post', 'ArticleController@ajaxTest');
 
-Route::get('ajax/test', array('as' => 'ajax', 'uses' => 'ArticleController@ajaxTest'));
-
-Route::post('ajax/test', array('as' => 'ajax', 'uses' => 'ArticleController@ajaxTest'));

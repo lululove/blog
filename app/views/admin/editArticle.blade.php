@@ -73,15 +73,16 @@
                 <h1 style="padding-bottom: 3px">编辑文章</h1>
                 <form method="post">
                     <div class="col-md-9">
+                        <p style="display: none" id="ArticleId" name="article_id">{{(is_null($article) ? null:$article->article_id)}}</p>
                         <div class="form-group">
                             <label for="ArticleTitle">文章标题</label>
                             <input type="text" name="article_title" class="form-control" id="ArticleTitle" value="{{(is_null($article) ? null:$article->article_title)}}" placeholder="填写文章标题">
                         </div>
-                        <textarea name="article_content" id="ArticleComment">{{(is_null($article) ? null:$article->article_content)}}</textarea>
+                        <textarea name="article_content" id="ArticleContent">{{(is_null($article) ? null:$article->article_content)}}</textarea>
                         <script type="text/javascript">
-                            CKEDITOR.replace('article_content');
+                            var getVal = CKEDITOR.replace('ArticleContent');
                             function getContenet(){
-                                return CKEDITOR.instances.content.getData();    //获取textarea的值
+                                return getVal.getData();    //获取textarea的值
                             }
                         </script>
                     </div>

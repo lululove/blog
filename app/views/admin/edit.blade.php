@@ -108,10 +108,10 @@
                     <th>日期</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="checkBoxArticle_id">
                 @foreach( $articles as $article)
                     <tr>
-                        <td><input type="checkbox" name="article_id" value="{{$article->article_title}}"> {{HTML::link(('edit/'.$article->category_id.'/'.$article->article_id), $article->article_title)}}</td>
+                        <td><input type="checkbox" name="article_id" id="checkBoxArticle_id_.{{$article->article_id}}"> {{HTML::link(('edit/'.$article->category_id.'/'.$article->article_id), $article->article_title)}}</td>
                         <td>{{$article->article_author}}</td>
                         <td>{{Article::find($article->article_id)->category->category_name}}</td>
                         <td>{{Article::find($article->article_id)->comment->count()}}</td>
