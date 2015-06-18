@@ -1,6 +1,10 @@
 /**
  * Created by Lulu on 2015/5/18.
  */
+function article_for_id() {
+
+}
+
 $(function() {
 
 
@@ -87,10 +91,34 @@ $(function() {
 
     //.is(':checked'):
     //checkBoxArticle_id
-    $("#operation_article").click(function () {
-        var length = $("#checkBoxArticle_id tr").length;
+    $("#article_operation button").click(function () {
 
-        console.log(length);
+        var operation_id = $("#article_operation select option:selected").val();
+        if (operation_id == '1')
+            return;
+
+        var length = $("#checkBoxArticle_id tr").length;
+        var checked = {};
+
+        for (var i=0; i<length; i++) {
+
+        }
+        switch (operation_id) {
+            case '2':  //转成草稿
+
+                break;
+            case '3':
+                break;
+            case '4':
+                break;
+            default:
+                break;
+        }
+
+       // var length = $("#checkBoxArticle_id tr").length;
+
+       // $("#checkBoxArticle_id tr").first().remove();
+       // console.log(length);
         /*
         $.ajax({
             type: "POST",

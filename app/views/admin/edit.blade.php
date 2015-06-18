@@ -75,14 +75,14 @@
                 <li class="pull-left">&nbsp;<a href="#">草稿({{Article::where('is_draft', '=', 1)->count()}})</a></li>
             </ul>
             <div class="clearfix">
-                <form class="form-inline pull-left">
+                <form id="article_operation" class="form-inline pull-left">
                     <select class="form-control">
-                        <option>批量操作</option>
-                        <option>转成草稿</option>
-                        <option>发布文章</option>
-                        <option>移至回收站</option>
+                        <option value="1">批量操作</option>
+                        <option value="2">转成草稿</option>
+                        <option value="3">发布文章</option>
+                        <option value="4">移至回收站</option>
                     </select>
-                    <button id="operation_article" class="btn btn-default" type="button">应用</button>
+                    <button class="btn btn-default" type="button">应用</button>
                 </form>
                 <form method="post" action="{{action('ArticleController@postFilterCategory')}}" class="form-inline pull-left">
                     <select name="filter_category" style="margin-left: 15px" class="form-control">
