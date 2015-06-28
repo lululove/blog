@@ -121,10 +121,27 @@ $(function() {
                     },
                     success: function (data) {
                         console.log(data.article_checked);
+                        window.location.reload();
                     }
                 })
                 break;
-            case '3':
+            case '3':  //发布文章
+                checked = saveInputChecked();
+                console.log(checked);
+                $.ajax({
+                    type: "POST",
+                    url: "/blog/public/ajax/post",
+                    dataType: "json",
+                    data: {
+                        msg_type: 4,
+                        checked: checked
+
+                    },
+                    success: function (data) {
+                        console.log(data.article_checked);
+                        window.location.reload();
+                    }
+                })
                 break;
             case '4':
                 break;

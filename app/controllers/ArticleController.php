@@ -166,9 +166,14 @@ class ArticleController extends BaseController {
             $article_checked = Input::get('checked');
 
             for ($i=0; $i< count($article_checked); $i++) {
+
                 $article = Article::find($article_checked[$i]);
-                $article->is_draft = 1;
-                $article->save();
+
+                if ($article->is_draft != 1) {
+
+                    $article->is_draft = 1;
+                    $article->save();
+                }
             }
 
             return Response::json(array(
@@ -176,6 +181,24 @@ class ArticleController extends BaseController {
                 'article_checked' => $article_checked,
             ));
 
+        } else if ($msg_type == 4) { /*发布文章*/
+            $article_checked = Input::get('checked');
+
+            for ($i=0; $i< count($article_checked); $i++) {
+
+                $article = Article::find($article_checked[$i]);
+
+                if ($article->is_draft != 0) {
+
+                    $article->is_draft = 0;
+                    $article->save();
+                }
+            }
+
+            return Response::json(array(
+                'msg_type' => $msg_type,
+                'article_checked' => $article_checked,
+            ));
         }
 
     }
