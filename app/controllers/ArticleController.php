@@ -136,9 +136,7 @@ class ArticleController extends BaseController {
                 'category_id' => $category_id,
             ));
 
-        }
-
-        else if ($msg_type == 2) {
+        } else if ($msg_type == 2) {
 
             $article_id = Input::get('article_id');
 
@@ -161,6 +159,21 @@ class ArticleController extends BaseController {
             return Response::json(array(
                 'msg_type' => $msg_type,
                 'article_id' => $article->article_id,
+            ));
+
+        } else if ($msg_type == 3) {   /*转成草稿*/
+
+            $article_checked = Input::get('checked');
+
+            for ($i=0; $i< count($article_checked); $i++) {
+                $article = Article::find($article_checked[$i]);
+                $article->is_draft = 1;
+                $article->save();
+            }
+
+            return Response::json(array(
+                'msg_type' => $msg_type,
+                'article_checked' => $article_checked,
             ));
 
         }

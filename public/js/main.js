@@ -1,8 +1,15 @@
 /**
  * Created by Lulu on 2015/5/18.
  */
-function article_for_id() {
+function saveInputChecked() {
 
+    var checked = {};
+    var i=0;
+    $("input[name='article_id']:checked").each(function () {
+        checked[i++] = this.value;
+    });
+
+    return checked;
 }
 
 $(function() {
@@ -91,21 +98,31 @@ $(function() {
 
     //.is(':checked'):
     //checkBoxArticle_id
+
     $("#article_operation button").click(function () {
 
         var operation_id = $("#article_operation select option:selected").val();
         if (operation_id == '1')
             return;
-
-        var length = $("#checkBoxArticle_id tr").length;
         var checked = {};
 
-        for (var i=0; i<length; i++) {
-
-        }
         switch (operation_id) {
             case '2':  //转成草稿
+                checked = saveInputChecked();
+                console.log(checked);
+                $.ajax({
+                    type: "POST",
+                    url: "/blog/public/ajax/post",
+                    dataType: "json",
+                    data: {
+                        msg_type: 3,
+                        checked: checked
 
+                    },
+                    success: function (data) {
+                        console.log(data.article_checked);
+                    }
+                })
                 break;
             case '3':
                 break;
@@ -119,20 +136,6 @@ $(function() {
 
        // $("#checkBoxArticle_id tr").first().remove();
        // console.log(length);
-        /*
-        $.ajax({
-            type: "POST",
-            url: "/blog/public/ajax/post",
-            dataType: "json",
-            data: {
-                msg_type: 3
-
-            },
-            success: function (data) {
-                console.log("response ok");
-            }
-        })*/
-
     });
 
 });
