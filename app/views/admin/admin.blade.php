@@ -68,7 +68,20 @@
                 </ul>
             </div>
             <div class="col-md-10">
-                主窗口
+                <?php
+                include_once 'plug-in/geshi.php';
+                $source = '$foo = 45;
+for ( $i = 1; $i < $foo; $i++ )
+{
+    echo "$foo\n";
+    --$foo;
+}';
+                $language = 'php';
+                $geshi = new GeSHi($source, $language);
+                $geshi->enable_line_numbers(GESHI_FANCY_LINE_NUMBERS, 1);
+                $geshi->start_line_numbers_at(1);
+                echo $geshi->parse_code();
+                ?>
             </div>
         </div>
     </div>

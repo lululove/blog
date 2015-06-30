@@ -6,7 +6,6 @@
     {{HTML::style('styles/reset.css')}}
     {{HTML::style('bootstrap-3.3.4/css/bootstrap.css')}}
     {{HTML::style('styles/admin.css')}}
-
 </head>
 <body>
 <div class="navbar navbar-static-top" role="navigation">
