@@ -13,9 +13,10 @@ class IndexController extends BaseController {
        // $articles = DB::select('SELECT * FROM article');
        // $articles = DB::table('article')->get();
 
-        $articles = Article::all();
+        //$articles = Article::all();
         $categories = Category::all();
 
+        $articles = Article::Paginate(2);
         return View::make('index')->with(array('articles' => $articles, 'categories' => $categories));
     }
 

@@ -59,6 +59,9 @@
                         </div>
                     </div>
                 @endforeach
+                <div>
+                    {{$articles->links()}}
+                </div>
             </div>
             <div class="center-block">
                 <p class="center-block">&copy; 2013-2015 <b>Lulu爱</b>. <a href="http://www.miitbeian.gov.cn/" title="赣ICP备15000527号" target="_blank">赣ICP备15000527号</a></p>

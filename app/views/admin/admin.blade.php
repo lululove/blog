@@ -67,7 +67,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-10" id="code_test">
                 <?php
                 include_once 'plug-in/geshi.php';
                 $source = '$foo = 45;
@@ -75,10 +75,42 @@ for ( $i = 1; $i < $foo; $i++ )
 {
     echo "$foo\n";
     --$foo;
+}
+for ( $i = 1; $i < $foo; $i++ )
+{
+    echo "$foo\n";
+    --$foo;
+}
+for ( $i = 1; $i < $foo; $i++ )
+{
+    echo "$foo\n";
+    --$foo;
+}
+for ( $i = 1; $i < $foo; $i++ )
+{
+    echo "$foo\n";
+    --$foo;
+}
+for ( $i = 1; $i < $foo; $i++ )
+{
+    echo "$foo\n";
+    --$foo;
+}
+for ( $i = 1; $i < $foo; $i++ )
+{
+    echo "$foo\n";
+    --$foo;
+}
+for ( $i = 1; $i < $foo; $i++ )
+{
+    echo "$foo\n";
+    --$foo;
 }';
                 $language = 'php';
                 $geshi = new GeSHi($source, $language);
-                $geshi->enable_line_numbers(GESHI_FANCY_LINE_NUMBERS, 1);
+                $geshi->enable_classes();
+                $geshi->set_header_type(GESHI_HEADER_PRE_TABLE);
+                $geshi->enable_line_numbers(GESHI_NORMAL_LINE_NUMBERS);
                 $geshi->start_line_numbers_at(1);
                 echo $geshi->parse_code();
                 ?>

@@ -73,3 +73,27 @@
 #rm_category_area {
     display: none;
 }
+
+
+/* Comment */
+#code_test .co0, #code_test .co1, #code_test .co2, #code_test .co3, #code_test .co4, #code_test .coMULTI { color: #406040; font-style: italic; }
+/* Constant */
+#code_test .nu0, #code_test .re3 { color: #0080A0; }
+/* String */
+#code_test .st0, #code_test .st_h, #code_test .es0, #code_test .es1 { color: #C03030; }
+/* Entity */
+#code_test .me1, #code_test .me2 { color: #0080FF; }
+/* Keyword */
+#code_test .kw1, #code_test .kw2, #code_test .sy1 { color: #2060A0; }
+/* Storage */
+#code_test .kw3, #code_test .kw4, #code_test .kw5, #code_test .re2 { color: #008080; }
+/* Variable */
+#code_test .re0, #code_test .re1 { color: #A08000; }
+/* Global color */
+#code_test .br0, #code_test .sy0 { color: #000000; }
+/* Storage */
+#code_test .xml .re1 { color: #008080; }
+/* Constant */
+#code_test .xml .re0 { color: #0080A0; }
+/* Highlight lines */
+#code_test .ln-xtra { background-color: #ffff66; }
