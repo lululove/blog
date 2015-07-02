@@ -66,13 +66,13 @@
                                 <div class="col-md-10">
                                     <input name="comment_author" type="text" class="form-control" id="comment_author" placeholder="评论作者">
                                 </div>
-                                <label for="comment_author" class="control-label">作者</label>
+                                <label for="comment_author" class="control-label">作者<span style="color: #F00;">&nbsp;*</span></label>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-10">
                                 <input name="comment_email" type="email" class="form-control" id="comment_email" placeholder="邮箱">
                                     </div>
-                                <label for="comment_email" class="control-label">邮箱</label>
+                                <label for="comment_email" class="control-label">邮箱<span style="color: #F00;">&nbsp;*</span></label>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-10">

@@ -38,7 +38,7 @@
                     <div class="article">
                         <div class="jumbotron" id="my-jumbotron">
                             <div class="clearfix">
-                                <h2 class="pull-left"><strong>{{ HTML::link('article/'.$article->article_id, $article->article_title) }}</strong></h2>
+                                <h3 class="pull-left">{{ HTML::link('article/'.$article->article_id, $article->article_title) }}</h3>
                                 <ul class="pull-right">
                                     <li class="article-time">
                                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"> </span>
@@ -54,8 +54,8 @@
                                     </li>
                                 </ul>
                             </div>
-                            <p>{{$article->article_content}}</p>
-                            <P>{{ HTML::link('article/'.$article->article_id, '   阅读全文...') }}</P>
+                            <p>{{mb_substr(strip_tags($article->article_content), 0, 200)}}</p>
+                            <P>{{HTML::link('article/'.$article->article_id, '   阅读全文...') }}</P>
                         </div>
                     </div>
                 @endforeach

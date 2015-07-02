@@ -69,9 +69,9 @@
         <div class="col-md-10">
             <h2>{{HTML::link('edit/new', '写文章')}}</h2>
             <ul class="clearfix">
-                <li class="pull-left"><a href="#">全部({{Article::count()}})</a>&nbsp;|</li>
-                <li class="pull-left">&nbsp;<a href="#">已发布({{Article::where('is_draft', '=', 0)->count()}})</a>&nbsp;|</li>
-                <li class="pull-left">&nbsp;<a href="#">草稿({{Article::where('is_draft', '=', 1)->count()}})</a></li>
+                <li class="pull-left"><a href="{{url('articleAll')}}">全部({{Article::count()}})</a>&nbsp;|</li>
+                <li class="pull-left">&nbsp;<a href="{{url('articleSubmit')}}">已发布({{Article::where('is_draft', '=', 0)->count()}})</a>&nbsp;|</li>
+                <li class="pull-left">&nbsp;<a href="{{url('articleDraft')}}">草稿({{Article::where('is_draft', '=', 1)->count()}})</a></li>
             </ul>
             <div class="clearfix">
                 <form id="article_operation" class="form-inline pull-left">
@@ -102,6 +102,7 @@
                 <tr>
                     <th>标题</th>
                     <th>作者</th>
+                    <th>状态</th>
                     <th>分类</th>
                     <th>评论</th>
                     <th>日期</th>
@@ -112,6 +113,12 @@
                     <tr>
                         <td><input type="checkbox" name="article_id" id="checkBoxArticle_id_{{$article->article_id}}" value="{{$article->article_id}}"> {{HTML::link(('edit/'.$article->category_id.'/'.$article->article_id), $article->article_title)}}</td>
                         <td>{{$article->article_author}}</td>
+                        @if ($article->is_draft == 1)
+                            <td>草稿</td>
+                        @else
+                            <td>已发布</td>
+                        @endif
+
                         <td>{{Article::find($article->article_id)->category->category_name}}</td>
                         <td>{{Article::find($article->article_id)->comment->count()}}</td>
                         <td>{{$article->created_at}}</td>

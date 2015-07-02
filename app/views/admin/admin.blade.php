@@ -68,9 +68,22 @@
                 </ul>
             </div>
             <div class="col-md-10" id="code_test">
-                <?php
-                include_once 'plug-in/geshi.php';
-                $source = '$foo = 45;
+
+            </div>
+        </div>
+    </div>
+
+    {{HTML::script('jquery-1.11.3/jquery-1.11.3.js')}}
+    {{HTML::script('bootstrap-3.3.4/js/bootstrap.js')}}
+    {{HTML::script('js/main.js')}}
+
+</body>
+</html>
+
+<!--
+
+include_once 'plug-in/geshi.php';
+$source = '$foo = 45;
 for ( $i = 1; $i < $foo; $i++ )
 {
     echo "$foo\n";
@@ -106,21 +119,12 @@ for ( $i = 1; $i < $foo; $i++ )
     echo "$foo\n";
     --$foo;
 }';
-                $language = 'php';
-                $geshi = new GeSHi($source, $language);
-                $geshi->enable_classes();
-                $geshi->set_header_type(GESHI_HEADER_PRE_TABLE);
-                $geshi->enable_line_numbers(GESHI_NORMAL_LINE_NUMBERS);
-                $geshi->start_line_numbers_at(1);
-                echo $geshi->parse_code();
-                ?>
-            </div>
-        </div>
-    </div>
+$language = 'php';
+$geshi = new GeSHi($source, $language);
+$geshi->enable_classes();
+$geshi->set_header_type(GESHI_HEADER_PRE_TABLE);
+$geshi->enable_line_numbers(GESHI_NORMAL_LINE_NUMBERS);
+$geshi->start_line_numbers_at(1);
+echo $geshi->parse_code();
 
-    {{HTML::script('jquery-1.11.3/jquery-1.11.3.js')}}
-    {{HTML::script('bootstrap-3.3.4/js/bootstrap.js')}}
-    {{HTML::script('js/main.js')}}
-
-</body>
-</html>
+-->

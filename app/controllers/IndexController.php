@@ -16,7 +16,7 @@ class IndexController extends BaseController {
         //$articles = Article::all();
         $categories = Category::all();
 
-        $articles = Article::simplePaginate(5);
+        $articles = Article::where('is_draft', '=', 0)->simplePaginate(5);
         return View::make('index')->with(array('articles' => $articles, 'categories' => $categories));
     }
 

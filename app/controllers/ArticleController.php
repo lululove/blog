@@ -219,4 +219,25 @@ class ArticleController extends BaseController {
 
         return View::make('admin.edit')->with(array('articles' => $articles, 'categories' => $categories));
     }
+
+    public function getArticleAll() {
+
+        return Redirect::to('edit');
+    }
+
+    public function getArticleSubmit() {
+
+        $articles = Article::where('is_draft', '=', 0)->get();
+        $categories = Category::all();
+
+        return View::make('admin.edit')->with(array('articles' => $articles, 'categories' => $categories));
+    }
+
+    public function getArticleDraft() {
+
+        $articles = Article::where('is_draft', '=', 1)->get();
+        $categories = Category::all();
+
+        return View::make('admin.edit')->with(array('articles' => $articles, 'categories' => $categories));
+    }
 }

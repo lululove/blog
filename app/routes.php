@@ -58,3 +58,9 @@ Route::post('edit/{category_id}/{article_id}', 'ArticleController@postEditArticl
 
 Route::post('ajax/post', 'ArticleController@ajaxTest');
 
+Route::get('articleAll', 'ArticleController@getArticleAll');
+
+Route::get('articleSubmit', 'ArticleController@getArticleSubmit');
+
+Route::get('articleDraft', 'ArticleController@getArticleDraft');
+
