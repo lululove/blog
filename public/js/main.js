@@ -102,14 +102,23 @@ $(function() {
     $("#article_operation button").click(function () {
 
         var operation_id = $("#article_operation select option:selected").val();
+
+        console.log("entry ok");
         if (operation_id == '1')
             return;
-        var checked = {};
 
+        var checked = saveInputChecked();
+
+        if (checked[0] == null) {
+
+            console.log("checked null")
+
+            return;
+        }
+        console.log(checked);
         switch (operation_id) {
             case '2':  //转成草稿
-                checked = saveInputChecked();
-                console.log(checked);
+
                 $.ajax({
                     type: "POST",
                     url: "/blog/public/ajax/post",
@@ -126,8 +135,6 @@ $(function() {
                 })
                 break;
             case '3':  //发布文章
-                checked = saveInputChecked();
-                console.log(checked);
                 $.ajax({
                     type: "POST",
                     url: "/blog/public/ajax/post",
@@ -143,7 +150,21 @@ $(function() {
                     }
                 })
                 break;
-            case '4':
+            case '4':  //回收站
+                $.ajax({
+                    type: "POST",
+                    url: "/blog/public/ajax/post",
+                    dataType: "json",
+                    data: {
+                        msg_type: 5,
+                        checked: checked
+
+                    },
+                    success: function (data) {
+                        console.log(data.article_checked);
+                        window.location.reload();
+                    }
+                })
                 break;
             default:
                 break;

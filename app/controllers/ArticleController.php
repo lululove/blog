@@ -10,7 +10,7 @@ class ArticleController extends BaseController {
     public function getEdit()
     {
 
-        $articles = Article::all();
+        $articles = Article::where('is_draft', '!= ', 2)->get();
         $categories = Category::all();
 
         return View::make('admin.edit')->with(array('articles' => $articles, 'categories' => $categories));
@@ -169,7 +169,7 @@ class ArticleController extends BaseController {
 
                 $article = Article::find($article_checked[$i]);
 
-                if ($article->is_draft != 1) {
+                if ($article->is_draft == 0) {
 
                     $article->is_draft = 1;
                     $article->save();
@@ -188,9 +188,27 @@ class ArticleController extends BaseController {
 
                 $article = Article::find($article_checked[$i]);
 
-                if ($article->is_draft != 0) {
+                if ($article->is_draft == 1) {
 
                     $article->is_draft = 0;
+                    $article->save();
+                }
+            }
+
+            return Response::json(array(
+                'msg_type' => $msg_type,
+                'article_checked' => $article_checked,
+            ));
+        } else if ($msg_type == 5) { /*回收站*/
+            $article_checked = Input::get('checked');
+
+            for ($i=0; $i< count($article_checked); $i++) {
+
+                $article = Article::find($article_checked[$i]);
+
+                if ($article->is_draft != 2) {
+
+                    $article->is_draft = 2;
                     $article->save();
                 }
             }
@@ -222,7 +240,10 @@ class ArticleController extends BaseController {
 
     public function getArticleAll() {
 
-        return Redirect::to('edit');
+        $articles = Article::where('is_draft', '!=', 2)->get();
+        $categories = Category::all();
+
+        return View::make('admin.edit')->with(array('articles' => $articles, 'categories' => $categories));
     }
 
     public function getArticleSubmit() {

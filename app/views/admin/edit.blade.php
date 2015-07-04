@@ -69,7 +69,7 @@
         <div class="col-md-10">
             <h2>{{HTML::link('edit/new', '写文章')}}</h2>
             <ul class="clearfix">
-                <li class="pull-left"><a href="{{url('articleAll')}}">全部({{Article::count()}})</a>&nbsp;|</li>
+                <li class="pull-left"><a href="{{url('articleAll')}}">全部({{Article::where('is_draft', '!=', 2)->count()}})</a>&nbsp;|</li>
                 <li class="pull-left">&nbsp;<a href="{{url('articleSubmit')}}">已发布({{Article::where('is_draft', '=', 0)->count()}})</a>&nbsp;|</li>
                 <li class="pull-left">&nbsp;<a href="{{url('articleDraft')}}">草稿({{Article::where('is_draft', '=', 1)->count()}})</a></li>
             </ul>
@@ -115,7 +115,7 @@
                         <td>{{$article->article_author}}</td>
                         @if ($article->is_draft == 1)
                             <td>草稿</td>
-                        @else
+                        @elseif ($article->is_draft == 0)
                             <td>已发布</td>
                         @endif
 
