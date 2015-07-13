@@ -21,22 +21,12 @@
         <div class="row">
             <div class="col-md-2">
                 <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
-
-                    <li class="active">
-                        <a href="admin">
-                            <i class="glyphicon glyphicon-eye-open"></i>
-                            状态
-                            <span class="label label-warning pull-right">5</span>
-                        </a>
-                    </li>
-
                     <li>
                         <a href="{{URL::route('edit')}}">
                             <i class="glyphicon glyphicon-pushpin"></i>
                             文章
                         </a>
                     </li>
-
                     <li>
                         <a href="./plans.html">
                             <i class="glyphicon glyphicon-file"></i>
@@ -44,30 +34,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
-                            <i class="glyphicon glyphicon-cog"></i>
-                            系统管理
-                            <span class="pull-right glyphicon glyphicon-chevron-down"></span>
-                        </a>
-                        <ul id="systemSetting" class="nav nav-list collapse secondmenu" style="height: 0px;">
-                            <li><a href="#">用户管理</a></li>
-                        </ul>
-                    </li>
-                    <li>
                         <a href="#">
                             <i class="glyphicon glyphicon-th-large"></i>
                             返回首页
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-fire"></i>
-                            关于系统
-                        </a>
-                    </li>
                 </ul>
             </div>
-            <div class="col-md-10" id="code_test">
+            <div class="col-md-10">
 
             </div>
         </div>

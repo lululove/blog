@@ -40,9 +40,10 @@ class AuthController extends BaseController {
 
         if (Auth::check())
         {
+            $articles = Article::where('is_draft', '!= ', 2)->get();
             $categories = Category::all();
 
-            return View::make('admin.admin', array('categories' => $categories));
+            return View::make('admin.edit')->with(array('articles' => $articles, 'categories' => $categories));
 
         } else {
 

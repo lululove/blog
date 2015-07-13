@@ -30,13 +30,20 @@
             </div>
         </div>
         <div class="col-xs-9 col-xs-offset-3" id="right-content">
-            <div id="right-header">
-            </div>
-            <div id="total-article">
-               HEHE
-            </div>
-            <div class="center-block">
-                <p class="center-block">&copy; 2013-2015 <b>Lulu爱</b>. <a href="http://www.miitbeian.gov.cn/" title="赣ICP备15000527号" target="_blank">赣ICP备15000527号</a></p>
+            <div class="row">
+                <div class="container-fluid">
+                    <h2 class="page-header">关于作者</h2>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <p>Lulu爱， 江西赣州人士也，90后，喜欢码代码，爱好开源，主刀嵌入C，了解嵌入式设备相关软件开发技术，这个小世界会一直记录Lulu的成长过程，目前工作性质为底层驱动工程师，负责WIFI、CDMA、LTE、Android相关产品研发。</br></br>
+
+                                为何取名Lulu爱？这里面关乎着一个美好而纯洁的爱情故事，欲知详情，请容我日后细细道来…</br></br>
+
+                                邮箱：admin@lulu-love.cc</br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
